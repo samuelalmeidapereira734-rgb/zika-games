@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zika Games - Desbloquear</title>
+
+<title>Zika Games - Jogos</title>
 
 <style>
 * {
@@ -15,102 +16,144 @@ body {
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
-    background: radial-gradient(circle at top, #14264a 0%, #070d1b 45%, #020409 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+    background:
+        radial-gradient(circle at top, #14264a 0%, #070d1b 45%, #020409 100%);
+    padding: 25px 15px;
 }
 
 .container {
     width: 100%;
-    max-width: 440px;
+    max-width: 450px;
+    margin: auto;
     text-align: center;
 }
 
 .logo {
-    font-size: 22px;
+    font-size: 25px;
     font-weight: 900;
-    margin-bottom: 35px;
-}
-
-h1 {
-    font-size: 42px;
-    margin: 0 0 8px;
-    font-weight: 900;
-    letter-spacing: 1px;
+    margin: 15px 0 8px;
 }
 
 .subtitle {
-    font-size: 18px;
-    color: #c9d2e5;
-    margin-bottom: 28px;
-}
-
-.card {
-    background: rgba(18, 27, 45, 0.94);
-    border: 1px solid #35445e;
-    border-radius: 24px;
-    padding: 25px 20px;
-    box-shadow: 0 15px 55px rgba(0,0,0,.45);
-}
-
-.badge {
-    display: inline-block;
-    background: #16cfff;
-    color: white;
-    font-weight: 800;
-    padding: 10px 18px;
-    border-radius: 30px;
-    margin-bottom: 18px;
-}
-
-h2 {
-    font-size: 27px;
-    margin: 5px 0 12px;
-}
-
-.text {
-    color: #d9e0ec;
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 22px;
-}
-
-.ad {
-    height: 145px;
-    border: 2px dashed #61718c;
-    border-radius: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     color: #aebbd0;
-    font-size: 13px;
-    font-weight: bold;
-    margin-bottom: 18px;
+    font-size: 15px;
+    margin-bottom: 25px;
 }
 
-button {
+.game {
+    background: rgba(18, 27, 45, 0.95);
+    border: 1px solid #34445f;
+    border-radius: 17px;
+    padding: 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.30);
+}
+
+.game h2 {
+    font-size: 18px;
+    margin: 0 0 14px;
+}
+
+.download {
     width: 100%;
     border: 0;
-    border-radius: 16px;
-    padding: 18px;
+    border-radius: 12px;
+    padding: 15px;
     background: #16cfff;
     color: white;
-    font-size: 19px;
+    font-size: 16px;
     font-weight: 900;
     cursor: pointer;
 }
 
-button:disabled {
+.download:hover {
+    filter: brightness(1.1);
+}
+
+/* Tela de desbloqueio */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.88);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-box {
+    width: 100%;
+    max-width: 400px;
+    background: #101827;
+    border: 1px solid #35445e;
+    border-radius: 22px;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 15px 60px rgba(0,0,0,.65);
+}
+
+.modal-box h2 {
+    margin: 5px 0 10px;
+    font-size: 25px;
+}
+
+.modal-text {
+    color: #c5cfdd;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.ad {
+    height: 140px;
+    border: 2px dashed #52617a;
+    border-radius: 14px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ba9bd;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.timer {
+    font-size: 35px;
+    font-weight: 900;
+    margin: 10px 0 18px;
+    color: #16cfff;
+}
+
+.unlock {
+    width: 100%;
+    border: 0;
+    border-radius: 13px;
+    padding: 16px;
     background: #536176;
+    color: white;
+    font-size: 17px;
+    font-weight: 900;
     cursor: not-allowed;
 }
 
-.small {
-    margin-top: 14px;
-    color: #9da9bb;
+.unlock.ready {
+    background: #16cfff;
+    cursor: pointer;
+}
+
+.close {
+    background: transparent;
+    border: 0;
+    color: #8e9bad;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.footer {
+    color: #68768b;
     font-size: 12px;
+    margin-top: 25px;
 }
 </style>
 </head>
@@ -119,57 +162,169 @@ button:disabled {
 
 <div class="container">
 
-    <div class="logo">🎮 Zika Games</div>
+    <div class="logo">🎮 ZIKA GAMES</div>
 
-    <h1>ZIKA GAMES</h1>
-    <div class="subtitle">Acesso rápido aos seus jogos</div>
+    <div class="subtitle">
+        Escolha seu jogo e acesse o conteúdo
+    </div>
 
-    <div class="card">
+    <div class="game">
+        <h2>🎮 DFL 2026</h2>
+        <button class="download" onclick="abrirDesbloqueio()">
+            BAIXAR JOGO
+        </button>
+    </div>
 
-        <div class="badge">🔓 ACESSO GRATUITO</div>
+    <div class="game">
+        <h2>🚗 GTA MOTOVLOG</h2>
+        <button class="download" onclick="abrirDesbloqueio()">
+            BAIXAR JOGO
+        </button>
+    </div>
 
-        <h2>Seu conteúdo está quase liberado</h2>
+    <div class="game">
+        <h2>🌎 JOGO DE MUNDO ABERTO 2026</h2>
+        <button class="download" onclick="abrirDesbloqueio()">
+            BAIXAR JOGO
+        </button>
+    </div>
 
-        <div class="text">
-            Aguarde alguns segundos para liberar o acesso aos nossos jogos.
-        </div>
+    <div class="game">
+        <h2>⚽ JOGO DE FUTSAL 2026</h2>
+        <button class="download" onclick="abrirDesbloqueio()">
+            BAIXAR JOGO
+        </button>
+    </div>
+
+    <div class="game">
+        <h2>🏆 EAFC 2026</h2>
+        <button class="download" onclick="abrirDesbloqueio()">
+            BAIXAR JOGO
+        </button>
+    </div>
+
+    <div class="game">
+        <h2>🚘 JOGO DE CARRO REBAIXADO</h2>
+        <button class="download" onclick="abrirDesbloqueio()">
+            BAIXAR JOGO
+        </button>
+    </div>
+
+    <div class="footer">
+        © 2026 Zika Games
+    </div>
+
+</div>
+
+
+<!-- DESBLOQUEIO -->
+
+<div class="modal" id="modal">
+
+    <div class="modal-box">
+
+        <h2>🔓 Desbloquear conteúdo</h2>
+
+        <p class="modal-text">
+            Aguarde alguns segundos para liberar o acesso ao conteúdo.
+        </p>
 
         <div class="ad">
             ESPAÇO RESERVADO PARA ANÚNCIO
         </div>
 
-        <button id="unlock" disabled>
-            DESBLOQUEAR 5
-        </button>
-
-        <div class="small">
-            O anúncio é independente do botão de acesso.
+        <div class="timer" id="timer">
+            5
         </div>
 
+        <button
+            class="unlock"
+            id="unlockButton"
+            disabled
+            onclick="continuar()">
+            AGUARDE 5 SEGUNDOS
+        </button>
+
+        <button class="close" onclick="fechar()">
+            Fechar
+        </button>
+
     </div>
+
 </div>
 
+
 <script>
+
+const linkDoJogo =
+"https://alpharede.com/To1hb8ORamm";
+
+let contador;
 let segundos = 5;
-const botao = document.getElementById("unlock");
 
-const contador = setInterval(function() {
+function abrirDesbloqueio() {
 
-    segundos--;
+    document.getElementById("modal").style.display = "flex";
 
-    if (segundos > 0) {
-        botao.textContent = "DESBLOQUEAR " + segundos;
-    } else {
-        clearInterval(contador);
-        botao.disabled = false;
-        botao.textContent = "DESBLOQUEAR →";
+    segundos = 5;
+
+    const timer = document.getElementById("timer");
+    const button = document.getElementById("unlockButton");
+
+    timer.textContent = segundos;
+
+    button.disabled = true;
+    button.classList.remove("ready");
+    button.textContent = "AGUARDE 5 SEGUNDOS";
+
+    clearInterval(contador);
+
+    contador = setInterval(function() {
+
+        segundos--;
+
+        timer.textContent = segundos;
+
+        if (segundos > 0) {
+
+            button.textContent =
+            "AGUARDE " + segundos + " SEGUNDOS";
+
+        } else {
+
+            clearInterval(contador);
+
+            button.disabled = false;
+
+            button.classList.add("ready");
+
+            button.textContent =
+            "BAIXAR AGORA →";
+        }
+
+    }, 1000);
+}
+
+
+function continuar() {
+
+    if (segundos <= 0) {
+
+        window.location.href = linkDoJogo;
+
     }
 
-}, 1000);
+}
 
-botao.addEventListener("click", function() {
-    window.location.href = "links.html";
-});
+
+function fechar() {
+
+    clearInterval(contador);
+
+    document.getElementById("modal").style.display = "none";
+
+}
+
 </script>
 
 </body>
