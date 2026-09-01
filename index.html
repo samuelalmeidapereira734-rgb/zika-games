@@ -1,331 +1,178 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Zika Games - Jogos</title>
+  <title>Desbloqueie seu acesso | Zika Games</title>
 
-<style>
-* {
-    box-sizing: border-box;
-}
+  <meta name="description" content="Desbloqueie seu acesso aos melhores jogos mobile no Zika Games.">
 
-body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    background:
-        radial-gradient(circle at top, #14264a 0%, #070d1b 45%, #020409 100%);
-    padding: 25px 15px;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-.container {
-    width: 100%;
-    max-width: 450px;
-    margin: auto;
-    text-align: center;
-}
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, #172554 0%, #020617 45%, #000000 100%);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
 
-.logo {
-    font-size: 25px;
-    font-weight: 900;
-    margin: 15px 0 8px;
-}
+    .container {
+      width: 100%;
+      max-width: 430px;
+      text-align: center;
+    }
 
-.subtitle {
-    color: #aebbd0;
-    font-size: 15px;
-    margin-bottom: 25px;
-}
+    .logo {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 20px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #00ff88, #00bfff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 34px;
+      font-weight: 900;
+      color: #020617;
+      box-shadow: 0 0 35px rgba(0,255,136,.35);
+    }
 
-.game {
-    background: rgba(18, 27, 45, 0.95);
-    border: 1px solid #34445f;
-    border-radius: 17px;
-    padding: 18px;
-    margin-bottom: 14px;
-    box-shadow: 0 8px 25px rgba(0,0,0,.30);
-}
+    h1 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
 
-.game h2 {
-    font-size: 18px;
-    margin: 0 0 14px;
-}
+    h1 span {
+      color: #00ff88;
+    }
 
-.download {
-    width: 100%;
-    border: 0;
-    border-radius: 12px;
-    padding: 15px;
-    background: #16cfff;
-    color: white;
-    font-size: 16px;
-    font-weight: 900;
-    cursor: pointer;
-}
+    .subtitle {
+      color: #cbd5e1;
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 28px;
+    }
 
-.download:hover {
-    filter: brightness(1.1);
-}
+    .card {
+      background: rgba(15, 23, 42, .92);
+      border: 1px solid rgba(148, 163, 184, .18);
+      border-radius: 22px;
+      padding: 25px 20px;
+      box-shadow: 0 15px 50px rgba(0,0,0,.45);
+    }
 
-/* Tela de desbloqueio */
+    .lock {
+      font-size: 52px;
+      margin-bottom: 15px;
+    }
 
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.88);
-    z-index: 9999;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
+    .card h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
 
-.modal-box {
-    width: 100%;
-    max-width: 400px;
-    background: #101827;
-    border: 1px solid #35445e;
-    border-radius: 22px;
-    padding: 25px 20px;
-    text-align: center;
-    box-shadow: 0 15px 60px rgba(0,0,0,.65);
-}
+    .card p {
+      color: #94a3b8;
+      line-height: 1.5;
+      margin-bottom: 22px;
+    }
 
-.modal-box h2 {
-    margin: 5px 0 10px;
-    font-size: 25px;
-}
+    .unlock-btn {
+      display: block;
+      width: 100%;
+      padding: 17px;
+      border-radius: 14px;
+      background: linear-gradient(90deg, #00ff88, #00d9ff);
+      color: #00130b;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 900;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(0,255,136,.25);
+      transition: .2s;
+    }
 
-.modal-text {
-    color: #c5cfdd;
-    font-size: 15px;
-    line-height: 1.5;
-}
+    .unlock-btn:active {
+      transform: scale(.97);
+    }
 
-.ad {
-    height: 140px;
-    border: 2px dashed #52617a;
-    border-radius: 14px;
-    margin: 20px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #9ba9bd;
-    font-size: 12px;
-    font-weight: bold;
-}
+    .info {
+      margin-top: 18px;
+      color: #64748b;
+      font-size: 12px;
+    }
 
-.timer {
-    font-size: 35px;
-    font-weight: 900;
-    margin: 10px 0 18px;
-    color: #16cfff;
-}
+    .ad-space {
+      min-height: 90px;
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #475569;
+      font-size: 11px;
+    }
 
-.unlock {
-    width: 100%;
-    border: 0;
-    border-radius: 13px;
-    padding: 16px;
-    background: #536176;
-    color: white;
-    font-size: 17px;
-    font-weight: 900;
-    cursor: not-allowed;
-}
-
-.unlock.ready {
-    background: #16cfff;
-    cursor: pointer;
-}
-
-.close {
-    background: transparent;
-    border: 0;
-    color: #8e9bad;
-    margin-top: 15px;
-    cursor: pointer;
-}
-
-.footer {
-    color: #68768b;
-    font-size: 12px;
-    margin-top: 25px;
-}
-</style>
+    .footer {
+      margin-top: 20px;
+      color: #64748b;
+      font-size: 12px;
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="container">
+  <main class="container">
 
-    <div class="logo">🎮 ZIKA GAMES</div>
+    <div class="logo">ZG</div>
 
-    <div class="subtitle">
-        Escolha seu jogo e acesse o conteúdo
+    <h1>Bem-vindo ao <span>Zika Games</span></h1>
+
+    <p class="subtitle">
+      Seu acesso aos melhores jogos para celular está quase liberado.
+    </p>
+
+    <div class="card">
+
+      <div class="lock">🔓</div>
+
+      <h2>Desbloqueie o acesso</h2>
+
+      <p>
+        Clique no botão abaixo para entrar na nossa seleção de jogos mobile.
+      </p>
+
+      <a class="unlock-btn" href="links.html">
+        🎮 DESBLOQUEAR ACESSO
+      </a>
+
+      <div class="info">
+        Acesso rápido • Jogos mobile • Zika Games
+      </div>
+
     </div>
 
-    <div class="game">
-        <h2>🎮 DFL 2026</h2>
-        <button class="download" onclick="abrirDesbloqueio()">
-            BAIXAR JOGO
-        </button>
-    </div>
-
-    <div class="game">
-        <h2>🚗 GTA MOTOVLOG</h2>
-        <button class="download" onclick="abrirDesbloqueio()">
-            BAIXAR JOGO
-        </button>
-    </div>
-
-    <div class="game">
-        <h2>🌎 JOGO DE MUNDO ABERTO 2026</h2>
-        <button class="download" onclick="abrirDesbloqueio()">
-            BAIXAR JOGO
-        </button>
-    </div>
-
-    <div class="game">
-        <h2>⚽ JOGO DE FUTSAL 2026</h2>
-        <button class="download" onclick="abrirDesbloqueio()">
-            BAIXAR JOGO
-        </button>
-    </div>
-
-    <div class="game">
-        <h2>🏆 EAFC 2026</h2>
-        <button class="download" onclick="abrirDesbloqueio()">
-            BAIXAR JOGO
-        </button>
-    </div>
-
-    <div class="game">
-        <h2>🚘 JOGO DE CARRO REBAIXADO</h2>
-        <button class="download" onclick="abrirDesbloqueio()">
-            BAIXAR JOGO
-        </button>
+    <div class="ad-space">
+      ESPAÇO PARA ANÚNCIO
     </div>
 
     <div class="footer">
-        © 2026 Zika Games
+      © 2026 Zika Games — Todos os direitos reservados.
     </div>
 
-</div>
-
-
-<!-- DESBLOQUEIO -->
-
-<div class="modal" id="modal">
-
-    <div class="modal-box">
-
-        <h2>🔓 Desbloquear conteúdo</h2>
-
-        <p class="modal-text">
-            Aguarde alguns segundos para liberar o acesso ao conteúdo.
-        </p>
-
-        <div class="ad">
-            ESPAÇO RESERVADO PARA ANÚNCIO
-        </div>
-
-        <div class="timer" id="timer">
-            5
-        </div>
-
-        <button
-            class="unlock"
-            id="unlockButton"
-            disabled
-            onclick="continuar()">
-            AGUARDE 5 SEGUNDOS
-        </button>
-
-        <button class="close" onclick="fechar()">
-            Fechar
-        </button>
-
-    </div>
-
-</div>
-
-
-<script>
-
-const linkDoJogo =
-"https://alpharede.com/To1hb8ORamm";
-
-let contador;
-let segundos = 5;
-
-function abrirDesbloqueio() {
-
-    document.getElementById("modal").style.display = "flex";
-
-    segundos = 5;
-
-    const timer = document.getElementById("timer");
-    const button = document.getElementById("unlockButton");
-
-    timer.textContent = segundos;
-
-    button.disabled = true;
-    button.classList.remove("ready");
-    button.textContent = "AGUARDE 5 SEGUNDOS";
-
-    clearInterval(contador);
-
-    contador = setInterval(function() {
-
-        segundos--;
-
-        timer.textContent = segundos;
-
-        if (segundos > 0) {
-
-            button.textContent =
-            "AGUARDE " + segundos + " SEGUNDOS";
-
-        } else {
-
-            clearInterval(contador);
-
-            button.disabled = false;
-
-            button.classList.add("ready");
-
-            button.textContent =
-            "BAIXAR AGORA →";
-        }
-
-    }, 1000);
-}
-
-
-function continuar() {
-
-    if (segundos <= 0) {
-
-        window.location.href = linkDoJogo;
-
-    }
-
-}
-
-
-function fechar() {
-
-    clearInterval(contador);
-
-    document.getElementById("modal").style.display = "none";
-
-}
-
-</script>
+  </main>
 
 </body>
 </html>
