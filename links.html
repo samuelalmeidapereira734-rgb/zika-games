@@ -1,152 +1,527 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Zika Games — Links</title>
+    <title>Zika Games - Jogos Mobile</title>
 
-<style>
-*{
-  box-sizing:border-box;
-}
+    <meta name="description"
+          content="Zika Games - Encontre jogos mobile, novidades e downloads autorizados para Android.">
 
-body{
-  margin:0;
-  background:#080b10;
-  color:#fff;
-  font-family:Arial,sans-serif;
-  padding:25px;
-}
+    <style>
 
-main{
-  max-width:430px;
-  margin:auto;
-  text-align:center;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-img{
-  width:110px;
-  height:110px;
-  object-fit:cover;
-  border-radius:50%;
-}
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080808;
+            color: white;
+            min-height: 100vh;
+        }
 
-h1{
-  margin:10px 0 5px;
-}
+        .container {
+            width: 100%;
+            max-width: 650px;
+            margin: auto;
+            padding: 20px 15px 40px;
+        }
 
-.sub{
-  color:#9aa6b8;
-  margin-bottom:25px;
-}
+        /* LOGO */
 
-.game-link{
-  display:block;
-  text-decoration:none;
-  color:#fff;
-  background:#151b25;
-  border:1px solid #293447;
-  padding:18px;
-  margin:12px 0;
-  border-radius:15px;
-  font-weight:800;
-  transition:.2s;
-}
+        .logo {
+            width: 95px;
+            height: 95px;
+            margin: 10px auto 15px;
 
-.game-link:hover{
-  border-color:#1680ff;
-  transform:scale(1.02);
-}
+            background: linear-gradient(135deg, #00ff66, #00b84c);
 
-.footer{
-  margin-top:30px;
-  padding-top:20px;
-  border-top:1px solid #293447;
-}
+            border-radius: 25px;
 
-.footer a{
-  display:block;
-  text-decoration:none;
-  color:#9aa6b8;
-  margin:12px 0;
-  font-size:14px;
-}
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-.footer a:hover{
-  color:#00ff88;
-}
+            font-size: 35px;
+            font-weight: 900;
 
-.copy{
-  color:#475569;
-  font-size:12px;
-  margin-top:20px;
-}
-</style>
+            color: #000;
 
+            box-shadow:
+                0 0 20px rgba(0,255,100,0.4);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 7px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #aaa;
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+
+        /* ESPAÇO DE ANÚNCIO */
+
+        .ad-space {
+            min-height: 100px;
+
+            border: 1px dashed #555;
+            border-radius: 12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            color: #777;
+
+            font-size: 12px;
+
+            margin: 22px 0;
+
+            background: #101010;
+        }
+
+        .ad-space span {
+            display: block;
+        }
+
+        /* JOGO */
+
+        .game-card {
+            background: #111;
+            border: 1px solid #252525;
+
+            border-radius: 18px;
+
+            padding: 12px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.35);
+        }
+
+        .game-image {
+            width: 100%;
+
+            display: block;
+
+            aspect-ratio: 16 / 9;
+
+            object-fit: cover;
+
+            border-radius: 13px;
+
+            margin-bottom: 13px;
+        }
+
+        .game-title {
+            font-size: 20px;
+            font-weight: bold;
+
+            margin-bottom: 6px;
+
+            text-align: center;
+        }
+
+        .game-description {
+            text-align: center;
+
+            color: #999;
+
+            font-size: 13px;
+
+            margin-bottom: 14px;
+        }
+
+        .download-btn {
+            display: block;
+
+            width: 100%;
+
+            padding: 14px;
+
+            background: #00e65c;
+
+            color: #000;
+
+            text-decoration: none;
+
+            text-align: center;
+
+            font-weight: bold;
+
+            border-radius: 10px;
+
+            transition: 0.2s;
+        }
+
+        .download-btn:hover {
+            background: #00ff66;
+
+            transform: scale(1.02);
+        }
+
+        /* SEPARAÇÃO DO ANÚNCIO */
+
+        .ad-between {
+            margin: 32px 0;
+        }
+
+        /* RODAPÉ */
+
+        footer {
+            text-align: center;
+
+            border-top: 1px solid #222;
+
+            padding-top: 25px;
+
+            margin-top: 20px;
+
+            color: #777;
+
+            font-size: 13px;
+        }
+
+        footer a {
+            color: #aaa;
+
+            text-decoration: none;
+
+            margin: 0 7px;
+        }
+
+        footer a:hover {
+            color: #00ff66;
+        }
+
+        .copyright {
+            margin-top: 15px;
+
+            font-size: 12px;
+
+            color: #555;
+        }
+
+    </style>
 </head>
 
 <body>
 
-<main>
+<div class="container">
 
-<img src="logo.png" alt="Zika Games">
+    <!-- LOGO -->
 
-<h1>ZIKA GAMES</h1>
+    <div class="logo">
+        ZG
+    </div>
 
-<p class="sub">🎮 Escolha seu jogo favorito</p>
+    <h1>ZIKA GAMES</h1>
 
-
-<!-- JOGOS -->
-
-<a class="game-link" href="#">
-🎮 DFL 2026
-</a>
-
-<a class="game-link" href="#">
-🚗 GTA MOTOVLOG
-</a>
-
-<a class="game-link" href="#">
-🌎 JOGO DE MUNDO ABERTO 2026
-</a>
-
-<a class="game-link" href="#">
-⚽ JOGO DE FUTSAL 2026
-</a>
-
-<a class="game-link" href="#">
-🏆 EAFC 2026
-</a>
-
-<a class="game-link" href="#">
-🚘 JOGO DE CARRO REBAIXADO
-</a>
+    <p class="subtitle">
+        🎮 Escolha seu jogo favorito
+    </p>
 
 
-<!-- LINKS IMPORTANTES -->
+    <!-- ANÚNCIO 1 -->
 
-<div class="footer">
+    <div class="ad-space">
+        <span>
+            PUBLICIDADE
+            <br>
+            Espaço reservado para anúncio
+        </span>
+    </div>
 
-<a href="privacidade.html">
-🔒 Política de Privacidade
-</a>
 
-<a href="termos.html">
-📋 Termos de Uso
-</a>
+    <!-- JOGO 1 -->
 
-<a href="contato.html">
-📧 Contato
-</a>
+    <div class="game-card">
 
-<div class="copy">
-© 2026 Zika Games
+        <img
+            src="dfl2026.jpg"
+            alt="DFL 2026"
+            class="game-image"
+        >
+
+        <h2 class="game-title">
+            DFL 2026
+        </h2>
+
+        <p class="game-description">
+            ⚽ Jogo de futebol para Android
+        </p>
+
+        <a
+            href="COLE_AQUI_O_LINK_OFICIAL_DO_DFL_2026"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="download-btn"
+        >
+            ⬇️ ACESSAR JOGO
+        </a>
+
+    </div>
+
+
+    <!-- ANÚNCIO 2 -->
+
+    <div class="ad-space">
+        <span>
+            PUBLICIDADE
+            <br>
+            Espaço reservado para anúncio
+        </span>
+    </div>
+
+
+    <!-- JOGO 2 -->
+
+    <div class="game-card">
+
+        <img
+            src="gtamotovlog.jpg"
+            alt="GTA Motovlog"
+            class="game-image"
+        >
+
+        <h2 class="game-title">
+            GTA Motovlog
+        </h2>
+
+        <p class="game-description">
+            🏍️ Jogo de moto e mundo aberto
+        </p>
+
+        <a
+            href="COLE_AQUI_O_LINK_OFICIAL_DO_GTA_MOTOVLOG"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="download-btn"
+        >
+            ⬇️ ACESSAR JOGO
+        </a>
+
+    </div>
+
+
+    <!-- ANÚNCIO 3 -->
+
+    <div class="ad-space">
+        <span>
+            PUBLICIDADE
+            <br>
+            Espaço reservado para anúncio
+        </span>
+    </div>
+
+
+    <!-- JOGO 3 -->
+
+    <div class="game-card">
+
+        <img
+            src="mundoaberto.jpg"
+            alt="Jogo de Mundo Aberto 2026"
+            class="game-image"
+        >
+
+        <h2 class="game-title">
+            Mundo Aberto 2026
+        </h2>
+
+        <p class="game-description">
+            🚗 Explore um grande mundo aberto
+        </p>
+
+        <a
+            href="COLE_AQUI_O_LINK_OFICIAL_DO_MUNDO_ABERTO"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="download-btn"
+        >
+            ⬇️ ACESSAR JOGO
+        </a>
+
+    </div>
+
+
+    <!-- ANÚNCIO 4 -->
+
+    <div class="ad-space">
+        <span>
+            PUBLICIDADE
+            <br>
+            Espaço reservado para anúncio
+        </span>
+    </div>
+
+
+    <!-- JOGO 4 -->
+
+    <div class="game-card">
+
+        <img
+            src="futsal2026.jpg"
+            alt="Jogo de Futsal 2026"
+            class="game-image"
+        >
+
+        <h2 class="game-title">
+            Futsal 2026
+        </h2>
+
+        <p class="game-description">
+            ⚽ Experiência de futsal para celular
+        </p>
+
+        <a
+            href="COLE_AQUI_O_LINK_OFICIAL_DO_FUTSAL_2026"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="download-btn"
+        >
+            ⬇️ ACESSAR JOGO
+        </a>
+
+    </div>
+
+
+    <!-- ANÚNCIO 5 -->
+
+    <div class="ad-space">
+        <span>
+            PUBLICIDADE
+            <br>
+            Espaço reservado para anúncio
+        </span>
+    </div>
+
+
+    <!-- JOGO 5 -->
+
+    <div class="game-card">
+
+        <img
+            src="eafc2026.jpg"
+            alt="EAFC 2026"
+            class="game-image"
+        >
+
+        <h2 class="game-title">
+            EAFC 2026
+        </h2>
+
+        <p class="game-description">
+            ⚽ Futebol para Android
+        </p>
+
+        <a
+            href="COLE_AQUI_O_LINK_OFICIAL_DO_EAFC_2026"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="download-btn"
+        >
+            ⬇️ ACESSAR JOGO
+        </a>
+
+    </div>
+
+
+    <!-- ANÚNCIO 6 -->
+
+    <div class="ad-space">
+        <span>
+            PUBLICIDADE
+            <br>
+            Espaço reservado para anúncio
+        </span>
+    </div>
+
+
+    <!-- JOGO 6 -->
+
+    <div class="game-card">
+
+        <img
+            src="carrorebaixado.jpg"
+            alt="Jogo de Carro Rebaixado"
+            class="game-image"
+        >
+
+        <h2 class="game-title">
+            Carro Rebaixado
+        </h2>
+
+        <p class="game-description">
+            🚘 Carros, som e personalização
+        </p>
+
+        <a
+            href="COLE_AQUI_O_LINK_OFICIAL_DO_CARRO_REBAIXADO"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="download-btn"
+        >
+            ⬇️ ACESSAR JOGO
+        </a>
+
+    </div>
+
+
+    <!-- ANÚNCIO FINAL -->
+
+    <div class="ad-space">
+        <span>
+            PUBLICIDADE
+            <br>
+            Espaço reservado para anúncio
+        </span>
+    </div>
+
+
+    <!-- RODAPÉ -->
+
+    <footer>
+
+        <div>
+
+            <a href="privacidade.html">
+                Privacidade
+            </a>
+
+            |
+
+            <a href="termos.html">
+                Termos
+            </a>
+
+            |
+
+            <a href="contato.html">
+                Contato
+            </a>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Zika Games — Todos os direitos reservados.
+        </div>
+
+    </footer>
+
 </div>
-
-</div>
-
-</main>
 
 </body>
 </html>
