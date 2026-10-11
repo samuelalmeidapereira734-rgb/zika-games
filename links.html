@@ -5,48 +5,60 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Zika Games 7 - Jogos Mobile</title>
-<meta name="description" content="Confira jogos mobile, futebol, mundo aberto e novidades para Android.">
+<meta name="description" content="Descubra jogos mobile, futebol, mundo aberto e novidades para Android no Zika Games 7.">
 
 <style>
 * {
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background: #080b10;
-    color: white;
+    color: #ffffff;
 }
 
 header {
+    padding: 30px 15px;
     text-align: center;
-    padding: 25px 15px;
     background: linear-gradient(135deg, #071a35, #087cf0);
 }
 
 header h1 {
     margin: 0;
-    font-size: 30px;
+    font-size: 32px;
+    font-weight: 900;
 }
 
 header p {
-    margin-bottom: 0;
+    margin: 10px 0 0;
+    color: #e5f1ff;
 }
 
 .container {
     width: 100%;
     max-width: 1100px;
-    margin: auto;
-    padding: 18px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.titulo {
+    text-align: center;
+    margin: 25px 0;
 }
 
 .anuncio {
-    min-height: 90px;
-    margin: 20px 0;
+    width: 100%;
+    min-height: 100px;
+    margin: 22px 0;
     padding: 15px;
-    border: 1px dashed #596575;
+    border: 1px dashed #536174;
     border-radius: 10px;
     color: #aeb8c7;
     text-align: center;
@@ -54,3 +66,320 @@ header p {
     align-items: center;
     justify-content: center;
 }
+
+.jogos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.jogo {
+    min-width: 0;
+    overflow: hidden;
+    text-align: center;
+    background: #131a24;
+    border: 1px solid #29384b;
+    border-radius: 14px;
+    padding-bottom: 22px;
+    transition: border-color 0.2s;
+}
+
+.jogo:hover {
+    border-color: #1680ff;
+}
+
+.jogo img {
+    display: block;
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    background: #202a37;
+}
+
+.jogo h2 {
+    min-height: 48px;
+    padding: 0 8px;
+    font-size: 19px;
+}
+
+.botao {
+    display: inline-block;
+    max-width: calc(100% - 20px);
+    padding: 13px 22px;
+    background: #087cf0;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.botao:hover {
+    background: #0059b8;
+}
+
+#espera {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.96);
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.caixa-espera {
+    width: 100%;
+    max-width: 420px;
+    padding: 25px;
+    text-align: center;
+    background: #131a24;
+    border: 1px solid #087cf0;
+    border-radius: 15px;
+}
+
+#contador {
+    font-size: 48px;
+    color: #49a4ff;
+}
+
+#continuar {
+    display: none;
+    margin: 15px auto;
+}
+
+.fechar {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px;
+    color: #c8d3e0;
+    background: transparent;
+    border: 1px solid #536174;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+footer {
+    margin-top: 30px;
+    padding: 28px 15px;
+    text-align: center;
+    line-height: 2;
+    background: #111720;
+    color: #c5cbd4;
+}
+
+footer a {
+    color: #69b5ff;
+    margin: 0 5px;
+}
+
+@media (max-width: 750px) {
+    .jogos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .jogo img {
+        height: 150px;
+    }
+
+    .jogo h2 {
+        font-size: 16px;
+    }
+
+    .botao {
+        padding: 11px 12px;
+        font-size: 13px;
+    }
+
+    header h1 {
+        font-size: 27px;
+    }
+}
+
+@media (max-width: 420px) {
+    .container {
+        padding: 12px;
+    }
+
+    .jogos {
+        grid-template-columns: 1fr;
+    }
+
+    .jogo img {
+        height: 210px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🎮 ZIKA GAMES 7</h1>
+    <p>Os melhores jogos mobile para Android!</p>
+</header>
+
+<main class="container">
+
+    <div class="anuncio">
+        Espaço reservado para anúncio
+    </div>
+
+    <h2 class="titulo">🔥 ESCOLHA SEU JOGO 🔥</h2>
+
+    <div class="jogos">
+
+        <!-- JOGO 1 -->
+        <article class="jogo">
+            <img src="jogo-1.jpg" alt="DFL 2026" loading="lazy">
+            <h2>⚽ DFL 2026</h2>
+            <button class="botao" onclick="abrirJogo('https://www.mediafire.com/file/lvwxo5nwccxe8yr/APK+FC26%E2%84%A2+ANDROID+OFFLINE+BY+ALPHATRIX+GAMING.zip/file')">
+                VER JOGO
+            </button>
+        </article>
+
+        <!-- JOGO 2 -->
+        <article class="jogo">
+            <img src="jogo-2.jpg" alt="GTA Motovlog" loading="lazy">
+            <h2>🏍️ GTA Motovlog</h2>
+            <button class="botao" onclick="abrirJogo('https://zcarlostm.blogspot.com/2026/03/gta-modificado-sp-sabor-gta-rp.html?m=1')">
+                VER JOGO
+            </button>
+        </article>
+
+        <!-- JOGO 3 -->
+        <article class="jogo">
+            <img src="jogo-3.jpg" alt="Jogo de Mundo Aberto" loading="lazy">
+            <h2>🌎 Jogo de Mundo Aberto</h2>
+            <button class="botao" onclick="abrirJogo('https://zcarlostm.blogspot.com/2026/03/gta-modificado-sp-sabor-gta-rp.html?m=1')">
+                VER JOGO
+            </button>
+        </article>
+
+        <!-- JOGO 4 -->
+        <article class="jogo">
+            <img src="jogo-4.jpg" alt="Jogo de Futsal 2026" loading="lazy">
+            <h2>⚽ Jogo de Futsal 2026</h2>
+            <button class="botao" onclick="abrirJogo('https://www.mediafire.com/file_premium/lt86zuik9u2k842/eFootball_27_FernandoPlay_Bendezu_Beta.7z/file')">
+                VER JOGO
+            </button>
+        </article>
+
+        <!-- JOGO 5 -->
+        <article class="jogo">
+            <img src="jogo-5.jpg" alt="EAFC 2026 Android" loading="lazy">
+            <h2>🔥 EAFC 2026 Android</h2>
+            <button class="botao" onclick="abrirJogo('https://www.mediafire.com/file/lvwxo5nwccxe8yr/APK+FC26%E2%84%A2+ANDROID+OFFLINE+BY+ALPHATRIX+GAMING.zip/file')">
+                VER JOGO
+            </button>
+        </article>
+
+        <!-- JOGO 6 -->
+        <article class="jogo">
+            <img src="jogo-6.jpg" alt="Jogo de Carro Rebaixado" loading="lazy">
+            <h2>🚗 Jogo de Carro Rebaixado</h2>
+            <button class="botao" onclick="abrirJogo('https://zcarlostm.blogspot.com/2026/03/gta-modificado-sp-sabor-gta-rp.html?m=1')">
+                VER JOGO
+            </button>
+        </article>
+
+    </div>
+
+    <div class="anuncio">
+        Espaço reservado para anúncio
+    </div>
+
+</main>
+
+<!-- TELA DE ESPERA -->
+<div id="espera">
+    <div class="caixa-espera">
+        <h2>🎮 SEU JOGO ESTÁ QUASE PRONTO!</h2>
+        <p>Aguarde a contagem para continuar.</p>
+
+        <div id="contador">10</div>
+
+        <a id="continuar"
+           class="botao"
+           href="#"
+           target="_blank"
+           rel="noopener noreferrer">
+            CONTINUAR PARA O JOGO
+        </a>
+
+        <div class="anuncio">
+            Espaço reservado para anúncio
+        </div>
+
+        <button class="fechar" onclick="fecharEspera()">
+            VOLTAR AOS JOGOS
+        </button>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Zika Games 7 — Todos os direitos reservados.</p>
+
+    <p>
+        <a href="sobre.html">Sobre nós</a> |
+        <a href="contato.html">Contato</a> |
+        <a href="privacidade.html">Política de Privacidade</a> |
+        <a href="termos.html">Termos de Uso</a>
+    </p>
+
+    <p>
+        Os links levam a páginas externas. Confira a origem e a segurança
+        dos arquivos antes de baixar ou instalar qualquer conteúdo.
+    </p>
+</footer>
+
+<script>
+let intervaloContador = null;
+
+function abrirJogo(url) {
+    const tela = document.getElementById("espera");
+    const contador = document.getElementById("contador");
+    const continuar = document.getElementById("continuar");
+
+    if (intervaloContador !== null) {
+        clearInterval(intervaloContador);
+    }
+
+    let segundos = 10;
+
+    contador.textContent = segundos;
+    continuar.style.display = "none";
+    continuar.href = url;
+
+    tela.style.display = "flex";
+
+    intervaloContador = setInterval(function() {
+        segundos--;
+        contador.textContent = segundos;
+
+        if (segundos <= 0) {
+            clearInterval(intervaloContador);
+            intervaloContador = null;
+            contador.textContent = "PRONTO!";
+            continuar.style.display = "inline-block";
+        }
+    }, 1000);
+}
+
+function fecharEspera() {
+    document.getElementById("espera").style.display = "none";
+
+    if (intervaloContador !== null) {
+        clearInterval(intervaloContador);
+        intervaloContador = null;
+    }
+}
+</script>
+
+</body>
+</html>
