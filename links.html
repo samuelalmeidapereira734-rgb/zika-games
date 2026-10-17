@@ -1,385 +1,333 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Zika Games 7 - Jogos Mobile</title>
-<meta name="description" content="Descubra jogos mobile, futebol, mundo aberto e novidades para Android no Zika Games 7.">
+  <title>Zika Games 7 - Jogos Mobile</title>
+  <meta name="description" content="Zika Games 7: confira jogos mobile de futebol, mundo aberto, carros e muito mais. Veja informações e acesse os jogos.">
 
-<style>
-* {
-    box-sizing: border-box;
-}
+  <meta name="theme-color" content="#080b10">
 
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #080b10;
-    color: #ffffff;
-}
-
-header {
-    padding: 30px 15px;
-    text-align: center;
-    background: linear-gradient(135deg, #071a35, #087cf0);
-}
-
-header h1 {
-    margin: 0;
-    font-size: 32px;
-    font-weight: 900;
-}
-
-header p {
-    margin: 10px 0 0;
-    color: #e5f1ff;
-}
-
-.container {
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.titulo {
-    text-align: center;
-    margin: 25px 0;
-}
-
-.anuncio {
-    width: 100%;
-    min-height: 100px;
-    margin: 22px 0;
-    padding: 15px;
-    border: 1px dashed #536174;
-    border-radius: 10px;
-    color: #aeb8c7;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.jogos {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
-}
-
-.jogo {
-    min-width: 0;
-    overflow: hidden;
-    text-align: center;
-    background: #131a24;
-    border: 1px solid #29384b;
-    border-radius: 14px;
-    padding-bottom: 22px;
-    transition: border-color 0.2s;
-}
-
-.jogo:hover {
-    border-color: #1680ff;
-}
-
-.jogo img {
-    display: block;
-    width: 100%;
-    height: 190px;
-    object-fit: cover;
-    background: #202a37;
-}
-
-.jogo h2 {
-    min-height: 48px;
-    padding: 0 8px;
-    font-size: 19px;
-}
-
-.botao {
-    display: inline-block;
-    max-width: calc(100% - 20px);
-    padding: 13px 22px;
-    background: #087cf0;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: bold;
-    border: 0;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.botao:hover {
-    background: #0059b8;
-}
-
-#espera {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.96);
-    align-items: center;
-    justify-content: center;
-    overflow-y: auto;
-}
-
-.caixa-espera {
-    width: 100%;
-    max-width: 420px;
-    padding: 25px;
-    text-align: center;
-    background: #131a24;
-    border: 1px solid #087cf0;
-    border-radius: 15px;
-}
-
-#contador {
-    font-size: 48px;
-    color: #49a4ff;
-}
-
-#continuar {
-    display: none;
-    margin: 15px auto;
-}
-
-.fechar {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px;
-    color: #c8d3e0;
-    background: transparent;
-    border: 1px solid #536174;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-footer {
-    margin-top: 30px;
-    padding: 28px 15px;
-    text-align: center;
-    line-height: 2;
-    background: #111720;
-    color: #c5cbd4;
-}
-
-footer a {
-    color: #69b5ff;
-    margin: 0 5px;
-}
-
-@media (max-width: 750px) {
-    .jogos {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
+  <style>
+    * {
+      box-sizing: border-box;
     }
 
-    .jogo img {
-        height: 150px;
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #080b10;
+      color: #ffffff;
     }
 
-    .jogo h2 {
-        font-size: 16px;
-    }
-
-    .botao {
-        padding: 11px 12px;
-        font-size: 13px;
+    header {
+      text-align: center;
+      padding: 30px 15px 25px;
+      background: linear-gradient(135deg, #071426, #102e54);
+      border-bottom: 2px solid #1680ff;
     }
 
     header h1 {
-        font-size: 27px;
+      margin: 0 0 12px;
+      font-size: 30px;
+      color: #ffffff;
     }
-}
 
-@media (max-width: 420px) {
+    header p {
+      margin: 0 auto;
+      max-width: 600px;
+      color: #c6d7eb;
+      line-height: 1.6;
+    }
+
     .container {
-        padding: 12px;
+      width: 92%;
+      max-width: 1100px;
+      margin: 25px auto;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 25px;
+      line-height: 1.7;
+      color: #cbd5e1;
     }
 
     .jogos {
-        grid-template-columns: 1fr;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .jogo {
+      background: #101720;
+      border: 1px solid #253448;
+      border-radius: 14px;
+      padding: 15px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
     .jogo img {
-        height: 210px;
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      border-radius: 9px;
+      background: #182333;
     }
-}
-</style>
+
+    .jogo h2 {
+      font-size: 19px;
+      margin: 15px 0 8px;
+      color: #ffffff;
+    }
+
+    .jogo p {
+      color: #b9c5d4;
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0 0 10px;
+    }
+
+    .anuncio-jogo {
+      width: 100%;
+      min-height: 100px;
+      margin: 12px 0 15px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      border: 1px dashed #42617f;
+      border-radius: 10px;
+      background: #0b1420;
+      color: #8ca8c4;
+      text-align: center;
+    }
+
+    .anuncio-jogo strong {
+      font-size: 12px;
+      font-weight: normal;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .anuncio-jogo span {
+      font-size: 11px;
+      color: #637d99;
+    }
+
+    .botao {
+      display: block;
+      width: 100%;
+      margin-top: auto;
+      padding: 13px 10px;
+      border-radius: 9px;
+      background: #087cff;
+      color: #ffffff;
+      text-decoration: none;
+      text-align: center;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+
+    .botao:hover {
+      background: #005ed0;
+    }
+
+    .conteudo {
+      margin-top: 30px;
+      padding: 20px;
+      background: #101720;
+      border: 1px solid #253448;
+      border-radius: 12px;
+      line-height: 1.7;
+      color: #cbd5e1;
+    }
+
+    .conteudo h2 {
+      color: #ffffff;
+      font-size: 21px;
+    }
+
+    footer {
+      margin-top: 35px;
+      padding: 25px 15px;
+      text-align: center;
+      background: #05080c;
+      border-top: 1px solid #243246;
+    }
+
+    footer a {
+      display: inline-block;
+      margin: 7px 9px;
+      color: #79b8ff;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    footer p {
+      color: #7f8da0;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 650px) {
+      .jogos {
+        grid-template-columns: 1fr;
+      }
+
+      .jogo img {
+        height: 210px;
+      }
+
+      header h1 {
+        font-size: 25px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
+  <header>
     <h1>🎮 ZIKA GAMES 7</h1>
-    <p>Os melhores jogos mobile para Android!</p>
-</header>
+    <p>Seu próximo jogo para celular pode estar aqui! Confira nossa seleção de jogos mobile.</p>
+  </header>
 
-<main class="container">
+  <main class="container">
 
-    <div class="anuncio">
-        Espaço reservado para anúncio
+    <div class="intro">
+      <h2>🔥 Escolha seu próximo jogo</h2>
+      <p>Confira os jogos, leia as informações e acesse o link de cada opção.</p>
     </div>
 
-    <h2 class="titulo">🔥 ESCOLHA SEU JOGO 🔥</h2>
+    <section class="jogos">
 
-    <div class="jogos">
+      <!-- JOGO 1 -->
+      <article class="jogo">
+        <img src="jogo-1.jpg" alt="DFL 2026" loading="lazy">
+        <h2>⚽ DFL 2026</h2>
+        <p>Confira esta opção de jogo de futebol para celular. Consulte os detalhes do arquivo e a compatibilidade antes de instalar.</p>
 
-        <!-- JOGO 1 -->
-        <article class="jogo">
-            <img src="jogo-1.jpg" alt="DFL 2026" loading="lazy">
-            <h2>⚽ DFL 2026</h2>
-            <button class="botao" onclick="abrirJogo('https://www.mediafire.com/file/lvwxo5nwccxe8yr/APK+FC26%E2%84%A2+ANDROID+OFFLINE+BY+ALPHATRIX+GAMING.zip/file')">
-                VER JOGO
-            </button>
-        </article>
-
-        <!-- JOGO 2 -->
-        <article class="jogo">
-            <img src="jogo-2.jpg" alt="GTA Motovlog" loading="lazy">
-            <h2>🏍️ GTA Motovlog</h2>
-            <button class="botao" onclick="abrirJogo('https://zcarlostm.blogspot.com/2026/03/gta-modificado-sp-sabor-gta-rp.html?m=1')">
-                VER JOGO
-            </button>
-        </article>
-
-        <!-- JOGO 3 -->
-        <article class="jogo">
-            <img src="jogo-3.jpg" alt="Jogo de Mundo Aberto" loading="lazy">
-            <h2>🌎 Jogo de Mundo Aberto</h2>
-            <button class="botao" onclick="abrirJogo('https://zcarlostm.blogspot.com/2026/03/gta-modificado-sp-sabor-gta-rp.html?m=1')">
-                VER JOGO
-            </button>
-        </article>
-
-        <!-- JOGO 4 -->
-        <article class="jogo">
-            <img src="jogo-4.jpg" alt="Jogo de Futsal 2026" loading="lazy">
-            <h2>⚽ Jogo de Futsal 2026</h2>
-            <button class="botao" onclick="abrirJogo('https://www.mediafire.com/file_premium/lt86zuik9u2k842/eFootball_27_FernandoPlay_Bendezu_Beta.7z/file')">
-                VER JOGO
-            </button>
-        </article>
-
-        <!-- JOGO 5 -->
-        <article class="jogo">
-            <img src="jogo-5.jpg" alt="EAFC 2026 Android" loading="lazy">
-            <h2>🔥 EAFC 2026 Android</h2>
-            <button class="botao" onclick="abrirJogo('https://www.mediafire.com/file/lvwxo5nwccxe8yr/APK+FC26%E2%84%A2+ANDROID+OFFLINE+BY+ALPHATRIX+GAMING.zip/file')">
-                VER JOGO
-            </button>
-        </article>
-
-        <!-- JOGO 6 -->
-        <article class="jogo">
-            <img src="jogo-6.jpg" alt="Jogo de Carro Rebaixado" loading="lazy">
-            <h2>🚗 Jogo de Carro Rebaixado</h2>
-            <button class="botao" onclick="abrirJogo('https://zcarlostm.blogspot.com/2026/03/gta-modificado-sp-sabor-gta-rp.html?m=1')">
-                VER JOGO
-            </button>
-        </article>
-
-    </div>
-
-    <div class="anuncio">
-        Espaço reservado para anúncio
-    </div>
-
-</main>
-
-<!-- TELA DE ESPERA -->
-<div id="espera">
-    <div class="caixa-espera">
-        <h2>🎮 SEU JOGO ESTÁ QUASE PRONTO!</h2>
-        <p>Aguarde a contagem para continuar.</p>
-
-        <div id="contador">10</div>
-
-        <a id="continuar"
-           class="botao"
-           href="#"
-           target="_blank"
-           rel="noopener noreferrer">
-            CONTINUAR PARA O JOGO
-        </a>
-
-        <div class="anuncio">
-            Espaço reservado para anúncio
+        <div class="anuncio-jogo">
+          <strong>Publicidade</strong>
+          <span>Espaço reservado para anúncio</span>
         </div>
 
-        <button class="fechar" onclick="fecharEspera()">
-            VOLTAR AOS JOGOS
-        </button>
-    </div>
-</div>
+        <a class="botao"
+           href="https://www.mediafire.com/file/lvwxo5nwccxe8yr/APK+FC26%E2%84%A2+ANDROID+OFFLINE+BY+ALPHATRIX+GAMING.zip/file"
+           target="_blank" rel="noopener noreferrer">VER JOGO</a>
+      </article>
 
-<footer>
+      <!-- JOGO 2 -->
+      <article class="jogo">
+        <img src="jogo-2.jpg" alt="GTA Motovlog" loading="lazy">
+        <h2>🏍️ GTA Motovlog</h2>
+        <p>Confira esta opção com tema de motos e exploração. Veja a descrição e a origem do arquivo antes de baixar.</p>
+
+        <div class="anuncio-jogo">
+          <strong>Publicidade</strong>
+          <span>Espaço reservado para anúncio</span>
+        </div>
+
+        <a class="botao"
+           href="https://zcarlostm.blogspot.com/2026/03/gta-modificado-sp-sabor-gta-rp.html?m=1"
+           target="_blank" rel="noopener noreferrer">VER JOGO</a>
+      </article>
+
+      <!-- JOGO 3 -->
+      <article class="jogo">
+        <img src="jogo-3.jpg" alt="Jogo de Mundo Aberto" loading="lazy">
+        <h2>🌎 Jogo de Mundo Aberto</h2>
+        <p>Uma opção para quem gosta de explorar cenários e descobrir atividades dentro do jogo. Confira os detalhes no site de destino.</p>
+
+        <div class="anuncio-jogo">
+          <strong>Publicidade</strong>
+          <span>Espaço reservado para anúncio</span>
+        </div>
+
+        <a class="botao"
+           href="https://zcarlostm.blogspot.com/2026/03/gta-modificado-sp-sabor-gta-rp.html?m=1"
+           target="_blank" rel="noopener noreferrer">VER JOGO</a>
+      </article>
+
+      <!-- JOGO 4 -->
+      <article class="jogo">
+        <img src="jogo-4.jpg" alt="Jogo de Futsal 2026" loading="lazy">
+        <h2>🥅 Jogo de Futsal 2026</h2>
+        <p>Confira esta opção de futebol de salão para celular. Verifique o formato do arquivo e os requisitos antes de instalar.</p>
+
+        <div class="anuncio-jogo">
+          <strong>Publicidade</strong>
+          <span>Espaço reservado para anúncio</span>
+        </div>
+
+        <a class="botao"
+           href="https://www.mediafire.com/file_premium/lt86zuik9u2k842/eFootball_27_FernandoPlay_Bendezu_Beta.7z/file"
+           target="_blank" rel="noopener noreferrer">VER JOGO</a>
+      </article>
+
+      <!-- JOGO 5 -->
+      <article class="jogo">
+        <img src="jogo-5.jpg" alt="EAFC 2026 Android" loading="lazy">
+        <h2>🔥 EAFC 2026 Android</h2>
+        <p>Veja os detalhes desta opção relacionada a futebol mobile. Confirme a fonte, o formato e a compatibilidade do download.</p>
+
+        <div class="anuncio-jogo">
+          <strong>Publicidade</strong>
+          <span>Espaço reservado para anúncio</span>
+        </div>
+
+        <a class="botao"
+           href="https://www.mediafire.com/file/lvwxo5nwccxe8yr/APK+FC26%E2%84%A2+ANDROID+OFFLINE+BY+ALPHATRIX+GAMING.zip/file"
+           target="_blank" rel="noopener noreferrer">VER JOGO</a>
+      </article>
+
+      <!-- JOGO 6 -->
+      <article class="jogo">
+        <img src="jogo-6.jpg" alt="Jogo de Carro Rebaixado" loading="lazy">
+        <h2>🚗 Jogo de Carro Rebaixado</h2>
+        <p>Confira esta opção para quem curte carros e personalização. Consulte as informações no site de destino.</p>
+
+        <div class="anuncio-jogo">
+          <strong>Publicidade</strong>
+          <span>Espaço reservado para anúncio</span>
+        </div>
+
+        <a class="botao"
+           href="https://zcarlostm.blogspot.com/2026/03/gta-modificado-sp-sabor-gta-rp.html?m=1"
+           target="_blank" rel="noopener noreferrer">VER JOGO</a>
+      </article>
+
+    </section>
+
+    <section class="conteudo">
+      <h2>📱 Como escolher um jogo para seu celular</h2>
+      <p>Antes de instalar, confira os requisitos mínimos, o espaço disponível no aparelho, o formato do arquivo e a compatibilidade com sua versão do Android. Prefira fontes confiáveis e verifique os arquivos antes de abri-los.</p>
+    </section>
+
+    <section class="conteudo">
+      <h2>ℹ️ Sobre o Zika Games 7</h2>
+      <p>O Zika Games 7 reúne links e informações sobre jogos para celular. As páginas de destino e os arquivos podem ser administrados por terceiros. Confira sempre a origem e os detalhes de cada download.</p>
+      <p>Os espaços identificados como publicidade são apenas reservas visuais. Para exibir anúncios reais, é necessário integrar o código correto do Google AdSense, respeitando as políticas e a aprovação do site.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <nav aria-label="Links do site">
+      <a href="sobre.html">Sobre nós</a>
+      <a href="contato.html">Contato</a>
+      <a href="privacidade.html">Política de Privacidade</a>
+      <a href="termos.html">Termos de Uso</a>
+    </nav>
     <p>© 2026 Zika Games 7 — Todos os direitos reservados.</p>
-
-    <p>
-        <a href="sobre.html">Sobre nós</a> |
-        <a href="contato.html">Contato</a> |
-        <a href="privacidade.html">Política de Privacidade</a> |
-        <a href="termos.html">Termos de Uso</a>
-    </p>
-
-    <p>
-        Os links levam a páginas externas. Confira a origem e a segurança
-        dos arquivos antes de baixar ou instalar qualquer conteúdo.
-    </p>
-</footer>
-
-<script>
-let intervaloContador = null;
-
-function abrirJogo(url) {
-    const tela = document.getElementById("espera");
-    const contador = document.getElementById("contador");
-    const continuar = document.getElementById("continuar");
-
-    if (intervaloContador !== null) {
-        clearInterval(intervaloContador);
-    }
-
-    let segundos = 10;
-
-    contador.textContent = segundos;
-    continuar.style.display = "none";
-    continuar.href = url;
-
-    tela.style.display = "flex";
-
-    intervaloContador = setInterval(function() {
-        segundos--;
-        contador.textContent = segundos;
-
-        if (segundos <= 0) {
-            clearInterval(intervaloContador);
-            intervaloContador = null;
-            contador.textContent = "PRONTO!";
-            continuar.style.display = "inline-block";
-        }
-    }, 1000);
-}
-
-function fecharEspera() {
-    document.getElementById("espera").style.display = "none";
-
-    if (intervaloContador !== null) {
-        clearInterval(intervaloContador);
-        intervaloContador = null;
-    }
-}
-</script>
+  </footer>
 
 </body>
 </html>
