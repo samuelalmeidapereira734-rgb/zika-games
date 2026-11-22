@@ -1,253 +1,583 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1856545229226807"
-     crossorigin="anonymous"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#06152e">
+<title>S7 DIGITAL | Marketplace</title>
 
-  <title>Desbloqueie seu acesso | Zika Games</title>
-
-  <meta name="description" content="Acesse os melhores jogos mobile no Zika Games.">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    body {
-      min-height: 100vh;
-      background:
-        radial-gradient(circle at top, #172554 0%, #020617 45%, #000000 100%);
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 430px;
-      text-align: center;
-    }
-
-    .logo {
-      width: 90px;
-      height: 90px;
-      margin: 0 auto 20px;
-      border-radius: 22px;
-      background: linear-gradient(135deg, #00ff88, #00bfff);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 34px;
-      font-weight: 900;
-      color: #020617;
-      box-shadow: 0 0 35px rgba(0,255,136,.35);
-    }
-
-    h1 {
-      font-size: 32px;
-      margin-bottom: 12px;
-    }
-
-    h1 span {
-      color: #00ff88;
-    }
-
-    .subtitle {
-      color: #cbd5e1;
-      font-size: 16px;
-      line-height: 1.5;
-      margin-bottom: 25px;
-    }
-
-    .card {
-      background: rgba(15, 23, 42, .95);
-      border: 1px solid rgba(148, 163, 184, .18);
-      border-radius: 22px;
-      padding: 25px 20px;
-      box-shadow: 0 15px 50px rgba(0,0,0,.45);
-    }
-
-    .lock {
-      font-size: 52px;
-      margin-bottom: 15px;
-    }
-
-    .card h2 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #94a3b8;
-      line-height: 1.5;
-      margin-bottom: 20px;
-    }
-
-    .ad-space {
-      min-height: 110px;
-      margin: 5px 0 20px;
-      border: 1px dashed #475569;
-      border-radius: 12px;
-      background: rgba(2, 6, 23, .7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      color: #64748b;
-      font-size: 12px;
-    }
-
-    .ad-space strong {
-      color: #94a3b8;
-      font-size: 14px;
-      margin-bottom: 5px;
-    }
-
-    .timer {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 18px;
-      color: #facc15;
-    }
-
-    .unlock-btn {
-      display: block;
-      width: 100%;
-      padding: 17px;
-      border-radius: 14px;
-      background: linear-gradient(90deg, #00ff88, #00d9ff);
-      color: #00130b;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: 900;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 8px 25px rgba(0,255,136,.25);
-      opacity: .45;
-      pointer-events: none;
-      transition: .2s;
-    }
-
-    .unlock-btn.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .unlock-btn:active {
-      transform: scale(.97);
-    }
-
-    .info {
-      margin-top: 18px;
-      color: #64748b;
-      font-size: 12px;
-    }
-
-    .footer {
-      margin-top: 20px;
-      color: #64748b;
-      font-size: 12px;
-    }
-  </style>
-
-  <script async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1856545229226807"
-    crossorigin="anonymous"></script>
+<style>
+:root{
+--azul:#087cff;
+--azul2:#39b5ff;
+--fundo:#06152e;
+--painel:#0c2040;
+--painel2:#102b50;
+--texto:#ffffff;
+--cinza:#a9bdd8;
+--borda:#203c61;
+--verde:#20d69b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:var(--fundo);
+color:var(--texto);
+}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:inherit}
+.container{width:92%;max-width:1250px;margin:auto}
+header{
+background:#081a35;
+border-bottom:1px solid var(--borda);
+position:sticky;top:0;z-index:100;
+}
+.nav{
+height:75px;display:flex;
+align-items:center;justify-content:space-between;
+gap:15px;
+}
+.logo{font-size:25px;font-weight:900;color:white}
+.logo span{color:var(--azul2)}
+.logo small{
+display:block;font-size:9px;
+letter-spacing:4px;color:var(--cinza)
+}
+nav{display:flex;gap:25px;color:var(--cinza);font-size:14px}
+nav a:hover{color:var(--azul2)}
+.botao{
+border:0;border-radius:10px;
+padding:13px 19px;font-weight:bold;
+background:linear-gradient(110deg,var(--azul),var(--azul2));
+color:white;transition:.2s;
+}
+.botao:hover{transform:translateY(-2px);filter:brightness(1.15)}
+.botao-secundario{
+background:#102b50;border:1px solid var(--borda);
+color:white;padding:12px 18px;border-radius:10px;
+}
+.hero{
+padding:85px 0 70px;
+display:grid;grid-template-columns:1fr 1fr;
+align-items:center;gap:40px;
+}
+.etiqueta{
+display:inline-block;
+background:#087cff22;color:#69baff;
+border:1px solid #087cff66;
+padding:9px 14px;border-radius:30px;
+font-size:11px;font-weight:bold;
+letter-spacing:1px;
+}
+.hero h1{
+font-size:clamp(40px,6vw,68px);
+line-height:1.08;margin:22px 0;
+}
+.destaque{
+background:linear-gradient(90deg,#42bdff,#087cff);
+-webkit-background-clip:text;color:transparent;
+}
+.hero p{
+color:var(--cinza);line-height:1.8;
+font-size:16px;max-width:550px;
+}
+.acoes{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
+.painel-demo{
+background:linear-gradient(145deg,#102b50,#091a34);
+border:1px solid #23518a;
+border-radius:22px;padding:25px;
+box-shadow:0 20px 60px #0007;
+}
+.painel-cabecalho{
+display:flex;justify-content:space-between;
+margin-bottom:22px;color:var(--cinza);
+}
+.indicadores{
+display:grid;grid-template-columns:1fr 1fr;gap:13px;
+}
+.indicador{
+padding:19px;background:#ffffff09;
+border:1px solid var(--borda);border-radius:14px;
+}
+.indicador small{color:var(--cinza)}
+.indicador strong{display:block;font-size:25px;margin-top:9px}
+.grafico{
+margin-top:15px;height:120px;
+background:linear-gradient(180deg,#087cff30,transparent);
+border-bottom:2px solid var(--azul);
+border-radius:12px;
+display:flex;align-items:end;
+gap:9px;padding:12px;
+}
+.barra{
+flex:1;border-radius:5px 5px 0 0;
+background:linear-gradient(#38baff,#087cff);
+}
+.secao{padding:65px 0}
+.titulo{text-align:center;margin-bottom:35px}
+.titulo h2{font-size:35px;margin:15px 0}
+.titulo p{color:var(--cinza);line-height:1.7}
+.grade{
+display:grid;grid-template-columns:repeat(3,1fr);
+gap:18px;
+}
+.card{
+background:linear-gradient(145deg,#102747,#0b1c37);
+border:1px solid var(--borda);
+padding:24px;border-radius:17px;
+transition:.2s;
+}
+.card:hover{
+transform:translateY(-5px);
+border-color:var(--azul);
+}
+.icone{
+width:48px;height:48px;border-radius:13px;
+display:grid;place-items:center;
+background:#087cff22;color:#67baff;
+font-size:23px;margin-bottom:18px;
+}
+.card h3{margin-bottom:10px}
+.card p{color:var(--cinza);font-size:13px;line-height:1.7}
+.produtos{
+display:grid;grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+.produto{
+background:var(--painel);
+border:1px solid var(--borda);
+border-radius:17px;overflow:hidden;
+}
+.produto-imagem{
+height:165px;display:grid;place-items:center;
+font-size:55px;
+background:radial-gradient(circle,#145da9,#0b1c37);
+}
+.produto-info{padding:20px}
+.categoria{
+color:#64baff;font-size:10px;font-weight:bold;
+letter-spacing:1px;
+}
+.produto h3{margin:12px 0 8px}
+.produto p{font-size:13px;color:var(--cinza);line-height:1.6}
+.preco{
+display:flex;align-items:center;
+justify-content:space-between;margin-top:18px;
+}
+.preco strong{font-size:22px}
+.area{
+background:#0b1d38;
+border-top:1px solid var(--borda);
+border-bottom:1px solid var(--borda);
+padding:55px 0;
+}
+.passos{
+display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+}
+.passo{
+padding:25px;background:#102747;
+border-radius:15px;border:1px solid var(--borda);
+}
+.passo b{color:#48aaff;font-size:12px}
+.passo h3{margin:14px 0}
+.passo p{color:var(--cinza);font-size:13px;line-height:1.7}
+.chamada{
+margin:65px auto;
+padding:40px;
+border:1px solid #1769b9;
+border-radius:20px;
+background:linear-gradient(110deg,#102d55,#0b1d38);
+display:flex;justify-content:space-between;
+align-items:center;gap:20px;
+}
+.chamada p{color:var(--cinza);margin-top:10px}
+footer{
+padding:30px 0;border-top:1px solid var(--borda);
+color:var(--cinza);font-size:13px;
+}
+.rodape{
+display:flex;justify-content:space-between;
+flex-wrap:wrap;gap:15px;
+}
+.modal-fundo{
+display:none;position:fixed;inset:0;
+background:#000c;z-index:200;
+align-items:center;justify-content:center;padding:15px;
+}
+.modal-fundo.ativo{display:flex}
+.modal{
+width:100%;max-width:440px;
+background:#102747;border:1px solid #2866a9;
+border-radius:20px;padding:25px;
+}
+.modal h2{margin-bottom:10px}
+.modal p{color:var(--cinza);font-size:13px;line-height:1.6;margin-bottom:20px}
+.campo{margin-bottom:15px}
+.campo label{display:block;font-size:13px;margin-bottom:7px}
+.campo input,.campo select,.campo textarea{
+width:100%;padding:13px;border-radius:9px;
+border:1px solid var(--borda);
+background:#07182f;color:white;outline:none;
+}
+.modal .botao{width:100%;margin-top:10px}
+.fechar{
+float:right;background:none;border:0;
+color:white;font-size:24px;
+}
+.aviso{
+font-size:11px;color:#829bbd;
+line-height:1.6;margin-top:15px;
+}
+@media(max-width:800px){
+nav{display:none}
+.hero{grid-template-columns:1fr;padding:55px 0}
+.grade,.produtos,.passos{grid-template-columns:1fr 1fr}
+.chamada{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:520px){
+.grade,.produtos,.passos{grid-template-columns:1fr}
+.hero h1{font-size:43px}
+.titulo h2{font-size:28px}
+.chamada{padding:25px}
+}
+</style>
 </head>
 
 <body>
 
-  <main class="container">
+<header>
+<div class="container nav">
+<a href="#" class="logo">S7 <span>DIGITAL</span><small>MARKETPLACE</small></a>
 
-    <div class="logo">ZG</div>
+<nav>
+<a href="#inicio">Início</a>
+<a href="#recursos">Recursos</a>
+<a href="#produtos">Produtos</a>
+<a href="#vendedores">Vendedores</a>
+</nav>
 
-    <h1>Bem-vindo ao <span>Zika Games</span></h1>
+<div>
+<button class="botao-secundario" onclick="abrir('login')">Entrar</button>
+<button class="botao" onclick="abrir('cadastro')">Criar conta</button>
+</div>
+</div>
+</header>
 
-    <p class="subtitle">
-      Seu acesso aos melhores jogos para celular está quase liberado.
-    </p>
+<main>
 
-    <div class="card">
+<section class="container hero" id="inicio">
+<div>
+<span class="etiqueta">✦ O SEU NOVO UNIVERSO DE VENDAS</span>
 
-      <div class="lock">🔓</div>
+<h1>
+Venda mais.<br>
+Cresça com a<br>
+<span class="destaque">S7 DIGITAL.</span>
+</h1>
 
-      <h2>Preparando seu acesso...</h2>
+<p>
+A plataforma para conectar vendedores e compradores.
+Venda produtos digitais e físicos, organize sua loja
+e acompanhe seus negócios em um só lugar.
+</p>
 
-      <p>
-        Aguarde alguns segundos enquanto preparamos o acesso aos jogos.
-      </p>
-
-      <div class="ad-space">
-        <strong>📢 ESPAÇO PARA ANÚNCIO</strong>
-        <span>Publicidade</span>
-      </div>
-
-      <div class="timer" id="timer">
-        Aguarde 10 segundos...
-      </div>
-
-      <a class="unlock-btn" id="unlockBtn" href="links.html">
-        🎮 ACESSAR JOGOS
-      </a>
-
-      <div class="info">
-        Acesso rápido • Jogos mobile • Zika Games
-      </div>
-
-    </div>
-
-<div class="footer">
-
-  <div style="margin-bottom:15px;">
-    <a href="privacidade.html" style="color:#94a3b8;text-decoration:none;margin:0 8px;">
-      🔒 Política de Privacidade
-    </a>
-
-    <a href="termos.html" style="color:#94a3b8;text-decoration:none;margin:0 8px;">
-      📋 Termos de Uso
-    </a>
-
-    <a href="contato.html" style="color:#94a3b8;text-decoration:none;margin:0 8px;">
-      📧 Contato
-    </a>
-  </div>
-
-  © 2026 Zika Games — Todos os direitos reservados.
-
+<div class="acoes">
+<button class="botao" onclick="abrir('cadastro')">Começar agora →</button>
+<a href="#recursos" class="botao-secundario">Conhecer plataforma</a>
+</div>
 </div>
 
-  </main>
+<div class="painel-demo">
+<div class="painel-cabecalho">
+<strong>PAINEL S7 DIGITAL</strong>
+<span>Visão demonstrativa</span>
+</div>
 
-  <script>
-    let segundos = 10;
+<div class="indicadores">
+<div class="indicador">
+<small>Vendas de exemplo</small>
+<strong>R$ 8.450</strong>
+</div>
+<div class="indicador">
+<small>Pedidos de exemplo</small>
+<strong>128</strong>
+</div>
+<div class="indicador">
+<small>Produtos de exemplo</small>
+<strong>36</strong>
+</div>
+<div class="indicador">
+<small>Clientes de exemplo</small>
+<strong>524</strong>
+</div>
+</div>
 
-    const timer = document.getElementById("timer");
-    const botao = document.getElementById("unlockBtn");
+<div class="grafico">
+<div class="barra" style="height:35%"></div>
+<div class="barra" style="height:50%"></div>
+<div class="barra" style="height:42%"></div>
+<div class="barra" style="height:72%"></div>
+<div class="barra" style="height:60%"></div>
+<div class="barra" style="height:90%"></div>
+<div class="barra" style="height:100%"></div>
+</div>
+</div>
+</section>
 
-    const contador = setInterval(function() {
+<section class="secao" id="recursos">
+<div class="container">
+<div class="titulo">
+<span class="etiqueta">TECNOLOGIA E INOVAÇÃO</span>
+<h2>Tudo para seu negócio crescer</h2>
+<p>Uma estrutura moderna para compradores, vendedores e administradores.</p>
+</div>
 
-      segundos--;
+<div class="grade">
 
-      if (segundos > 0) {
-        timer.textContent = "Aguarde " + segundos + " segundos...";
-      } else {
-        clearInterval(contador);
+<div class="card">
+<div class="icone">🏪</div>
+<h3>Marketplace completo</h3>
+<p>Reúna diferentes lojas e vendedores em uma única plataforma.</p>
+</div>
 
-        timer.textContent = "✅ Acesso liberado!";
+<div class="card">
+<div class="icone">📦</div>
+<h3>Produtos digitais e físicos</h3>
+<p>Cadastre produtos, imagens, descrições, preços e categorias.</p>
+</div>
 
-        botao.classList.add("active");
-        botao.textContent = "🎮 ACESSAR JOGOS";
-      }
+<div class="card">
+<div class="icone">💳</div>
+<h3>Pagamentos</h3>
+<p>Estrutura preparada para integração com provedores de pagamento.</p>
+</div>
 
-    }, 1000);
-  </script>
+<div class="card">
+<div class="icone">📊</div>
+<h3>Painel de vendas</h3>
+<p>Acompanhe pedidos, valores, desempenho e relatórios.</p>
+</div>
+
+<div class="card">
+<div class="icone">👥</div>
+<h3>Área dos vendedores</h3>
+<p>Gerencie lojas, produtos e informações comerciais.</p>
+</div>
+
+<div class="card">
+<div class="icone">🎯</div>
+<h3>Sistema de afiliados</h3>
+<p>Estrutura para divulgação de produtos e acompanhamento de comissões.</p>
+</div>
+
+<div class="card">
+<div class="icone">🎟️</div>
+<h3>Cupons de desconto</h3>
+<p>Prepare campanhas promocionais para seus produtos.</p>
+</div>
+
+<div class="card">
+<div class="icone">📩</div>
+<h3>Entrega digital</h3>
+<p>Estrutura para disponibilizar arquivos e produtos após confirmação do pagamento.</p>
+</div>
+
+<div class="card">
+<div class="icone">🛡️</div>
+<h3>Administração</h3>
+<p>Controle de usuários, lojas, produtos, pedidos e regras da plataforma.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="secao" id="produtos">
+<div class="container">
+<div class="titulo">
+<span class="etiqueta">VITRINE S7 DIGITAL</span>
+<h2>Produtos em destaque</h2>
+<p>Exemplos de apresentação dos produtos no marketplace.</p>
+</div>
+
+<div class="produtos">
+
+<div class="produto">
+<div class="produto-imagem">🎮</div>
+<div class="produto-info">
+<span class="categoria">PRODUTO DIGITAL</span>
+<h3>Jogos para celular</h3>
+<p>Produtos digitais para entretenimento.</p>
+<div class="preco">
+<strong>R$ 19,90</strong>
+<button class="botao" onclick="avisoDemo()">Ver produto</button>
+</div>
+</div>
+</div>
+
+<div class="produto">
+<div class="produto-imagem">📚</div>
+<div class="produto-info">
+<span class="categoria">PRODUTO DIGITAL</span>
+<h3>E-books e cursos</h3>
+<p>Materiais digitais e conteúdos educativos.</p>
+<div class="preco">
+<strong>R$ 29,90</strong>
+<button class="botao" onclick="avisoDemo()">Ver produto</button>
+</div>
+</div>
+</div>
+
+<div class="produto">
+<div class="produto-imagem">🎧</div>
+<div class="produto-info">
+<span class="categoria">PRODUTO FÍSICO</span>
+<h3>Acessórios</h3>
+<p>Produtos físicos e acessórios diversos.</p>
+<div class="preco">
+<strong>R$ 49,90</strong>
+<button class="botao" onclick="avisoDemo()">Ver produto</button>
+</div>
+</div>
+</div>
+
+</div>
+<p class="aviso">Os produtos e valores acima são ilustrativos. Nenhuma compra ou pagamento é realizado nesta demonstração.</p>
+</div>
+</section>
+
+<section class="area" id="vendedores">
+<div class="container">
+<div class="titulo">
+<span class="etiqueta">VENDA NA S7</span>
+<h2>Seu espaço para crescer</h2>
+<p>Uma experiência pensada para facilitar a jornada de cada vendedor.</p>
+</div>
+
+<div class="passos">
+<div class="passo">
+<b>ETAPA 01</b>
+<h3>Crie sua conta</h3>
+<p>Prepare seu perfil e escolha o tipo de acesso à plataforma.</p>
+</div>
+
+<div class="passo">
+<b>ETAPA 02</b>
+<h3>Cadastre seus produtos</h3>
+<p>Organize sua loja, imagens, descrições e preços.</p>
+</div>
+
+<div class="passo">
+<b>ETAPA 03</b>
+<h3>Comece a vender</h3>
+<p>Configure os pagamentos e a entrega antes de iniciar as vendas reais.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="container chamada">
+<div>
+<h2>Faça parte da S7 DIGITAL</h2>
+<p>Uma nova experiência para comprar e vender pela internet.</p>
+</div>
+<button class="botao" onclick="abrir('cadastro')">Criar minha conta →</button>
+</section>
+
+</main>
+
+<footer>
+<div class="container rodape">
+<div class="logo">S7 <span>DIGITAL</span></div>
+<p>© <span id="ano"></span> S7 DIGITAL. Todos os direitos reservados.</p>
+</div>
+</footer>
+
+<!-- JANELA DE CADASTRO E LOGIN -->
+<div class="modal-fundo" id="modal">
+<div class="modal">
+<button class="fechar" onclick="fechar()">×</button>
+<h2 id="tituloModal">Criar conta</h2>
+<p id="descricaoModal">Faça parte da S7 DIGITAL.</p>
+
+<form onsubmit="enviarFormulario(event)">
+
+<div class="campo" id="campoNome">
+<label>Nome completo</label>
+<input type="text" placeholder="Digite seu nome">
+</div>
+
+<div class="campo">
+<label>E-mail</label>
+<input type="email" required placeholder="Seu melhor e-mail">
+</div>
+
+<div class="campo">
+<label>Senha</label>
+<input type="password" required minlength="8" placeholder="Crie uma senha">
+</div>
+
+<div class="campo" id="campoTipo">
+<label>Tipo de conta</label>
+<select>
+<option>Quero comprar</option>
+<option>Quero vender</option>
+</select>
+</div>
+
+<button class="botao" type="submit">Continuar</button>
+
+</form>
+<p class="aviso">
+Demonstração visual. Para cadastro real, conecte um serviço
+de autenticação e banco de dados.
+</p>
+</div>
+</div>
+
+<script>
+document.getElementById("ano").textContent=new Date().getFullYear();
+
+function abrir(tipo){
+const modal=document.getElementById("modal");
+const cadastro=tipo==="cadastro";
+
+document.getElementById("tituloModal").textContent=
+cadastro?"Criar minha conta":"Entrar na S7 DIGITAL";
+
+document.getElementById("descricaoModal").textContent=
+cadastro?"Preencha os dados para começar.":"Acesse sua conta.";
+
+document.getElementById("campoNome").style.display=
+cadastro?"block":"none";
+
+document.getElementById("campoTipo").style.display=
+cadastro?"block":"none";
+
+modal.classList.add("ativo");
+}
+
+function fechar(){
+document.getElementById("modal").classList.remove("ativo");
+}
+
+function enviarFormulario(event){
+event.preventDefault();
+alert("Esta é uma demonstração. O cadastro real precisa de autenticação e banco de dados.");
+}
+
+function avisoDemo(){
+alert("Este produto é apenas um exemplo. O checkout ainda precisa ser integrado.");
+}
+
+document.getElementById("modal").addEventListener("click",function(e){
+if(e.target===this)fechar();
+});
+
+document.addEventListener("keydown",function(e){
+if(e.key==="Escape")fechar();
+});
+</script>
 
 </body>
 </html>
