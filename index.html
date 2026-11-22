@@ -3,242 +3,131 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#06152e">
-<title>S7 DIGITAL | Marketplace</title>
+<meta name="theme-color" content="#07152e">
+<title>S7 DIGITAL | Plataforma de Vendas</title>
+<meta name="description" content="Venda produtos digitais e físicos na S7 DIGITAL. Sua plataforma de vendas.">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-:root{
---azul:#087cff;
---azul2:#39b5ff;
---fundo:#06152e;
---painel:#0c2040;
---painel2:#102b50;
---texto:#ffffff;
---cinza:#a9bdd8;
---borda:#203c61;
---verde:#20d69b;
+:root {
+  --bg:#071225;
+  --panel:#101f39;
+  --blue:#1677ff;
+  --cyan:#20c8ff;
+  --text:#f4f8ff;
+  --muted:#9aabc5;
+  --border:#233956;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{
-font-family:Arial,Helvetica,sans-serif;
-background:var(--fundo);
-color:var(--texto);
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,sans-serif;
 }
-a{text-decoration:none;color:inherit}
-button{cursor:pointer;font-family:inherit}
-.container{width:92%;max-width:1250px;margin:auto}
 header{
-background:#081a35;
-border-bottom:1px solid var(--borda);
-position:sticky;top:0;z-index:100;
+  height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 7%;
+  border-bottom:1px solid var(--border);
+  background:#091831;
+  position:sticky;top:0;z-index:10;
 }
-.nav{
-height:75px;display:flex;
-align-items:center;justify-content:space-between;
-gap:15px;
+.logo{font-size:27px;font-weight:900;letter-spacing:-1px}
+.logo span{color:var(--cyan)}
+nav{display:flex;gap:25px;align-items:center}
+nav a{color:var(--muted);text-decoration:none;font-size:14px}
+button,.btn{
+  background:linear-gradient(100deg,#0865ef,#16baff);
+  color:white;border:0;border-radius:9px;
+  padding:13px 20px;font-weight:bold;
+  cursor:pointer;text-decoration:none;
 }
-.logo{font-size:25px;font-weight:900;color:white}
-.logo span{color:var(--azul2)}
-.logo small{
-display:block;font-size:9px;
-letter-spacing:4px;color:var(--cinza)
-}
-nav{display:flex;gap:25px;color:var(--cinza);font-size:14px}
-nav a:hover{color:var(--azul2)}
-.botao{
-border:0;border-radius:10px;
-padding:13px 19px;font-weight:bold;
-background:linear-gradient(110deg,var(--azul),var(--azul2));
-color:white;transition:.2s;
-}
-.botao:hover{transform:translateY(-2px);filter:brightness(1.15)}
-.botao-secundario{
-background:#102b50;border:1px solid var(--borda);
-color:white;padding:12px 18px;border-radius:10px;
-}
+button:hover,.btn:hover{opacity:.88}
+.container{max-width:1150px;margin:auto;padding:35px 22px}
 .hero{
-padding:85px 0 70px;
-display:grid;grid-template-columns:1fr 1fr;
-align-items:center;gap:40px;
+  padding:75px 35px;
+  border:1px solid #174b87;
+  border-radius:22px;
+  background:radial-gradient(circle at 80% 20%,#123f79,transparent 45%),linear-gradient(135deg,#102b51,#08152b);
 }
-.etiqueta{
-display:inline-block;
-background:#087cff22;color:#69baff;
-border:1px solid #087cff66;
-padding:9px 14px;border-radius:30px;
-font-size:11px;font-weight:bold;
-letter-spacing:1px;
+.tag{
+  color:#62d9ff;background:#103b62;
+  padding:9px 14px;border-radius:30px;
+  display:inline-block;font-size:12px;
+  margin-bottom:25px;
 }
-.hero h1{
-font-size:clamp(40px,6vw,68px);
-line-height:1.08;margin:22px 0;
+.hero h1{font-size:clamp(35px,6vw,60px);max-width:750px;line-height:1.08}
+.hero h1 span{color:#25baff}
+.hero p{color:#b5c6df;max-width:580px;line-height:1.7;margin:20px 0 28px}
+.section-title{font-size:27px;margin-bottom:12px}
+.subtitle{color:var(--muted);margin-bottom:25px}
+.features{
+ display:grid;grid-template-columns:repeat(3,1fr);
+ gap:17px;margin:35px 0 65px
 }
-.destaque{
-background:linear-gradient(90deg,#42bdff,#087cff);
--webkit-background-clip:text;color:transparent;
+.feature,.panel,.product{
+ background:var(--panel);border:1px solid var(--border);
+ border-radius:15px;padding:23px;
 }
-.hero p{
-color:var(--cinza);line-height:1.8;
-font-size:16px;max-width:550px;
+.feature h3{margin:12px 0}
+.feature p{color:var(--muted);font-size:14px;line-height:1.6}
+.icon{font-size:28px}
+.products{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+ gap:18px;margin-top:25px
 }
-.acoes{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
-.painel-demo{
-background:linear-gradient(145deg,#102b50,#091a34);
-border:1px solid #23518a;
-border-radius:22px;padding:25px;
-box-shadow:0 20px 60px #0007;
+.product img{
+ width:100%;height:145px;object-fit:cover;
+ border-radius:10px;background:#182c4b
 }
-.painel-cabecalho{
-display:flex;justify-content:space-between;
-margin-bottom:22px;color:var(--cinza);
-}
-.indicadores{
-display:grid;grid-template-columns:1fr 1fr;gap:13px;
-}
-.indicador{
-padding:19px;background:#ffffff09;
-border:1px solid var(--borda);border-radius:14px;
-}
-.indicador small{color:var(--cinza)}
-.indicador strong{display:block;font-size:25px;margin-top:9px}
-.grafico{
-margin-top:15px;height:120px;
-background:linear-gradient(180deg,#087cff30,transparent);
-border-bottom:2px solid var(--azul);
-border-radius:12px;
-display:flex;align-items:end;
-gap:9px;padding:12px;
-}
-.barra{
-flex:1;border-radius:5px 5px 0 0;
-background:linear-gradient(#38baff,#087cff);
-}
-.secao{padding:65px 0}
-.titulo{text-align:center;margin-bottom:35px}
-.titulo h2{font-size:35px;margin:15px 0}
-.titulo p{color:var(--cinza);line-height:1.7}
-.grade{
-display:grid;grid-template-columns:repeat(3,1fr);
-gap:18px;
-}
-.card{
-background:linear-gradient(145deg,#102747,#0b1c37);
-border:1px solid var(--borda);
-padding:24px;border-radius:17px;
-transition:.2s;
-}
-.card:hover{
-transform:translateY(-5px);
-border-color:var(--azul);
-}
-.icone{
-width:48px;height:48px;border-radius:13px;
-display:grid;place-items:center;
-background:#087cff22;color:#67baff;
-font-size:23px;margin-bottom:18px;
-}
-.card h3{margin-bottom:10px}
-.card p{color:var(--cinza);font-size:13px;line-height:1.7}
-.produtos{
-display:grid;grid-template-columns:repeat(3,1fr);
-gap:20px;
-}
-.produto{
-background:var(--painel);
-border:1px solid var(--borda);
-border-radius:17px;overflow:hidden;
-}
-.produto-imagem{
-height:165px;display:grid;place-items:center;
-font-size:55px;
-background:radial-gradient(circle,#145da9,#0b1c37);
-}
-.produto-info{padding:20px}
-.categoria{
-color:#64baff;font-size:10px;font-weight:bold;
-letter-spacing:1px;
-}
-.produto h3{margin:12px 0 8px}
-.produto p{font-size:13px;color:var(--cinza);line-height:1.6}
-.preco{
-display:flex;align-items:center;
-justify-content:space-between;margin-top:18px;
-}
-.preco strong{font-size:22px}
-.area{
-background:#0b1d38;
-border-top:1px solid var(--borda);
-border-bottom:1px solid var(--borda);
-padding:55px 0;
-}
-.passos{
-display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
-}
-.passo{
-padding:25px;background:#102747;
-border-radius:15px;border:1px solid var(--borda);
-}
-.passo b{color:#48aaff;font-size:12px}
-.passo h3{margin:14px 0}
-.passo p{color:var(--cinza);font-size:13px;line-height:1.7}
-.chamada{
-margin:65px auto;
-padding:40px;
-border:1px solid #1769b9;
-border-radius:20px;
-background:linear-gradient(110deg,#102d55,#0b1d38);
-display:flex;justify-content:space-between;
-align-items:center;gap:20px;
-}
-.chamada p{color:var(--cinza);margin-top:10px}
+.product h3{margin:14px 0 8px}
+.product p{color:var(--muted);font-size:13px;line-height:1.5}
+.price{font-size:22px;font-weight:bold;color:#4bc5ff;margin:15px 0}
+.product button{width:100%}
+.empty{color:var(--muted);padding:25px;text-align:center}
 footer{
-padding:30px 0;border-top:1px solid var(--borda);
-color:var(--cinza);font-size:13px;
+ border-top:1px solid var(--border);
+ padding:35px 7%;text-align:center;color:var(--muted);
+ margin-top:70px;font-size:13px;line-height:2
 }
-.rodape{
-display:flex;justify-content:space-between;
-flex-wrap:wrap;gap:15px;
+footer a{color:#65caff;margin:0 8px}
+.modal-bg{
+ display:none;position:fixed;inset:0;background:#000b;
+ z-index:30;align-items:center;justify-content:center;padding:15px
 }
-.modal-fundo{
-display:none;position:fixed;inset:0;
-background:#000c;z-index:200;
-align-items:center;justify-content:center;padding:15px;
-}
-.modal-fundo.ativo{display:flex}
 .modal{
-width:100%;max-width:440px;
-background:#102747;border:1px solid #2866a9;
-border-radius:20px;padding:25px;
+ background:#10213d;border:1px solid #31547d;
+ border-radius:18px;padding:28px;width:100%;max-width:430px
 }
-.modal h2{margin-bottom:10px}
-.modal p{color:var(--cinza);font-size:13px;line-height:1.6;margin-bottom:20px}
-.campo{margin-bottom:15px}
-.campo label{display:block;font-size:13px;margin-bottom:7px}
-.campo input,.campo select,.campo textarea{
-width:100%;padding:13px;border-radius:9px;
-border:1px solid var(--borda);
-background:#07182f;color:white;outline:none;
+.modal h2{margin-bottom:9px}
+.modal p{color:var(--muted);font-size:13px;margin-bottom:20px}
+input,textarea{
+ width:100%;padding:14px;margin:8px 0 15px;
+ border-radius:8px;border:1px solid #345071;
+ background:#08162d;color:white;outline:none
 }
-.modal .botao{width:100%;margin-top:10px}
-.fechar{
-float:right;background:none;border:0;
-color:white;font-size:24px;
+label{font-size:13px;color:#c9d9ef}
+.modal button{width:100%;margin-top:5px}
+.close{float:right;background:#263d5d;padding:7px 12px}
+#dashboard{display:none}
+.dash-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:25px 0}
+.stat strong{display:block;font-size:27px;color:#55c8ff;margin-top:12px}
+.notice{
+ background:#102e50;border:1px solid #245c91;
+ padding:15px;border-radius:10px;
+ color:#b9d9fa;font-size:13px;line-height:1.6;margin:20px 0
 }
-.aviso{
-font-size:11px;color:#829bbd;
-line-height:1.6;margin-top:15px;
-}
-@media(max-width:800px){
-nav{display:none}
-.hero{grid-template-columns:1fr;padding:55px 0}
-.grade,.produtos,.passos{grid-template-columns:1fr 1fr}
-.chamada{flex-direction:column;align-items:flex-start}
-}
-@media(max-width:520px){
-.grade,.produtos,.passos{grid-template-columns:1fr}
-.hero h1{font-size:43px}
-.titulo h2{font-size:28px}
-.chamada{padding:25px}
+.hidden{display:none!important}
+@media(max-width:650px){
+ header{padding:0 16px}
+ nav{gap:10px}
+ nav a{display:none}
+ .hero{padding:45px 22px}
+ .features,.dash-grid{grid-template-columns:1fr}
+ .container{padding:25px 15px}
 }
 </style>
 </head>
@@ -246,338 +135,319 @@ nav{display:none}
 <body>
 
 <header>
-<div class="container nav">
-<a href="#" class="logo">S7 <span>DIGITAL</span><small>MARKETPLACE</small></a>
-
-<nav>
-<a href="#inicio">Início</a>
-<a href="#recursos">Recursos</a>
-<a href="#produtos">Produtos</a>
-<a href="#vendedores">Vendedores</a>
-</nav>
-
-<div>
-<button class="botao-secundario" onclick="abrir('login')">Entrar</button>
-<button class="botao" onclick="abrir('cadastro')">Criar conta</button>
-</div>
-</div>
+ <div class="logo">S7 <span>DIGITAL</span></div>
+ <nav>
+  <a href="#inicio">Início</a>
+  <a href="#produtos">Produtos</a>
+  <button onclick="abrirLogin()">Entrar / Cadastrar</button>
+ </nav>
 </header>
 
-<main>
+<main class="container">
 
-<section class="container hero" id="inicio">
-<div>
-<span class="etiqueta">✦ O SEU NOVO UNIVERSO DE VENDAS</span>
-
-<h1>
-Venda mais.<br>
-Cresça com a<br>
-<span class="destaque">S7 DIGITAL.</span>
-</h1>
-
-<p>
-A plataforma para conectar vendedores e compradores.
-Venda produtos digitais e físicos, organize sua loja
-e acompanhe seus negócios em um só lugar.
-</p>
-
-<div class="acoes">
-<button class="botao" onclick="abrir('cadastro')">Começar agora →</button>
-<a href="#recursos" class="botao-secundario">Conhecer plataforma</a>
-</div>
-</div>
-
-<div class="painel-demo">
-<div class="painel-cabecalho">
-<strong>PAINEL S7 DIGITAL</strong>
-<span>Visão demonstrativa</span>
-</div>
-
-<div class="indicadores">
-<div class="indicador">
-<small>Vendas de exemplo</small>
-<strong>R$ 8.450</strong>
-</div>
-<div class="indicador">
-<small>Pedidos de exemplo</small>
-<strong>128</strong>
-</div>
-<div class="indicador">
-<small>Produtos de exemplo</small>
-<strong>36</strong>
-</div>
-<div class="indicador">
-<small>Clientes de exemplo</small>
-<strong>524</strong>
-</div>
-</div>
-
-<div class="grafico">
-<div class="barra" style="height:35%"></div>
-<div class="barra" style="height:50%"></div>
-<div class="barra" style="height:42%"></div>
-<div class="barra" style="height:72%"></div>
-<div class="barra" style="height:60%"></div>
-<div class="barra" style="height:90%"></div>
-<div class="barra" style="height:100%"></div>
-</div>
-</div>
+<section class="hero" id="inicio">
+ <span class="tag">✦ SUA NOVA PLATAFORMA DE VENDAS</span>
+ <h1>Venda mais. Cresça mais. <span>Seja S7 DIGITAL.</span></h1>
+ <p>
+  Uma plataforma para vendedores anunciarem seus produtos
+  digitais e físicos, acompanharem suas vendas e desenvolverem
+  seus negócios em um só lugar.
+ </p>
+ <button onclick="abrirCadastro()">COMEÇAR AGORA →</button>
 </section>
 
-<section class="secao" id="recursos">
-<div class="container">
-<div class="titulo">
-<span class="etiqueta">TECNOLOGIA E INOVAÇÃO</span>
-<h2>Tudo para seu negócio crescer</h2>
-<p>Uma estrutura moderna para compradores, vendedores e administradores.</p>
-</div>
-
-<div class="grade">
-
-<div class="card">
-<div class="icone">🏪</div>
-<h3>Marketplace completo</h3>
-<p>Reúna diferentes lojas e vendedores em uma única plataforma.</p>
-</div>
-
-<div class="card">
-<div class="icone">📦</div>
-<h3>Produtos digitais e físicos</h3>
-<p>Cadastre produtos, imagens, descrições, preços e categorias.</p>
-</div>
-
-<div class="card">
-<div class="icone">💳</div>
-<h3>Pagamentos</h3>
-<p>Estrutura preparada para integração com provedores de pagamento.</p>
-</div>
-
-<div class="card">
-<div class="icone">📊</div>
-<h3>Painel de vendas</h3>
-<p>Acompanhe pedidos, valores, desempenho e relatórios.</p>
-</div>
-
-<div class="card">
-<div class="icone">👥</div>
-<h3>Área dos vendedores</h3>
-<p>Gerencie lojas, produtos e informações comerciais.</p>
-</div>
-
-<div class="card">
-<div class="icone">🎯</div>
-<h3>Sistema de afiliados</h3>
-<p>Estrutura para divulgação de produtos e acompanhamento de comissões.</p>
-</div>
-
-<div class="card">
-<div class="icone">🎟️</div>
-<h3>Cupons de desconto</h3>
-<p>Prepare campanhas promocionais para seus produtos.</p>
-</div>
-
-<div class="card">
-<div class="icone">📩</div>
-<h3>Entrega digital</h3>
-<p>Estrutura para disponibilizar arquivos e produtos após confirmação do pagamento.</p>
-</div>
-
-<div class="card">
-<div class="icone">🛡️</div>
-<h3>Administração</h3>
-<p>Controle de usuários, lojas, produtos, pedidos e regras da plataforma.</p>
-</div>
-
-</div>
-</div>
+<section class="features">
+ <div class="feature">
+  <div class="icon">🚀</div>
+  <h3>Venda seus produtos</h3>
+  <p>Cadastre seus produtos e apresente suas ofertas em uma vitrine profissional.</p>
+ </div>
+ <div class="feature">
+  <div class="icon">📊</div>
+  <h3>Painel do vendedor</h3>
+  <p>Tenha acesso aos seus produtos e acompanhe suas atividades.</p>
+ </div>
+ <div class="feature">
+  <div class="icon">🔒</div>
+  <h3>Conta protegida</h3>
+  <p>Autenticação de usuários com integração ao Supabase.</p>
+ </div>
 </section>
 
-<section class="secao" id="produtos">
-<div class="container">
-<div class="titulo">
-<span class="etiqueta">VITRINE S7 DIGITAL</span>
-<h2>Produtos em destaque</h2>
-<p>Exemplos de apresentação dos produtos no marketplace.</p>
-</div>
+<section id="dashboard">
+ <h2 class="section-title">Meu painel</h2>
+ <p class="subtitle">Bem-vindo à sua área de vendedor.</p>
 
-<div class="produtos">
+ <div class="dash-grid">
+  <div class="feature stat">
+   Produtos cadastrados
+   <strong id="totalProdutos">0</strong>
+  </div>
+  <div class="feature stat">
+   Comissão por venda
+   <strong>R$ 3,00</strong>
+  </div>
+  <div class="feature stat">
+   Vendas confirmadas
+   <strong id="totalVendas">0</strong>
+  </div>
+ </div>
 
-<div class="produto">
-<div class="produto-imagem">🎮</div>
-<div class="produto-info">
-<span class="categoria">PRODUTO DIGITAL</span>
-<h3>Jogos para celular</h3>
-<p>Produtos digitais para entretenimento.</p>
-<div class="preco">
-<strong>R$ 19,90</strong>
-<button class="botao" onclick="avisoDemo()">Ver produto</button>
-</div>
-</div>
-</div>
+ <div class="panel">
+  <h3>Cadastrar novo produto</h3>
+  <form id="produtoForm">
+   <label>Nome do produto</label>
+   <input id="titulo" required maxlength="100" placeholder="Ex: Produto digital">
+   <label>Descrição</label>
+   <textarea id="descricao" required maxlength="1000" placeholder="Descreva seu produto"></textarea>
+   <label>Preço em reais</label>
+   <input id="preco" type="number" min="0.01" step="0.01" required placeholder="29.90">
+   <label>Link de uma imagem (opcional)</label>
+   <input id="imagem" type="url" placeholder="https://...">
+   <button type="submit">PUBLICAR PRODUTO</button>
+  </form>
+  <p id="mensagem" class="subtitle" style="margin-top:15px"></p>
+ </div>
 
-<div class="produto">
-<div class="produto-imagem">📚</div>
-<div class="produto-info">
-<span class="categoria">PRODUTO DIGITAL</span>
-<h3>E-books e cursos</h3>
-<p>Materiais digitais e conteúdos educativos.</p>
-<div class="preco">
-<strong>R$ 29,90</strong>
-<button class="botao" onclick="avisoDemo()">Ver produto</button>
-</div>
-</div>
-</div>
+ <div class="notice">
+  Sua comissão de R$ 3,00 será calculada após a integração
+  com o sistema de pagamentos e a confirmação da transação.
+  O painel ainda não contabiliza pagamentos.
+ </div>
 
-<div class="produto">
-<div class="produto-imagem">🎧</div>
-<div class="produto-info">
-<span class="categoria">PRODUTO FÍSICO</span>
-<h3>Acessórios</h3>
-<p>Produtos físicos e acessórios diversos.</p>
-<div class="preco">
-<strong>R$ 49,90</strong>
-<button class="botao" onclick="avisoDemo()">Ver produto</button>
-</div>
-</div>
-</div>
-
-</div>
-<p class="aviso">Os produtos e valores acima são ilustrativos. Nenhuma compra ou pagamento é realizado nesta demonstração.</p>
-</div>
+ <button onclick="sair()" style="background:#a52d43">SAIR DA CONTA</button>
 </section>
 
-<section class="area" id="vendedores">
-<div class="container">
-<div class="titulo">
-<span class="etiqueta">VENDA NA S7</span>
-<h2>Seu espaço para crescer</h2>
-<p>Uma experiência pensada para facilitar a jornada de cada vendedor.</p>
-</div>
-
-<div class="passos">
-<div class="passo">
-<b>ETAPA 01</b>
-<h3>Crie sua conta</h3>
-<p>Prepare seu perfil e escolha o tipo de acesso à plataforma.</p>
-</div>
-
-<div class="passo">
-<b>ETAPA 02</b>
-<h3>Cadastre seus produtos</h3>
-<p>Organize sua loja, imagens, descrições e preços.</p>
-</div>
-
-<div class="passo">
-<b>ETAPA 03</b>
-<h3>Comece a vender</h3>
-<p>Configure os pagamentos e a entrega antes de iniciar as vendas reais.</p>
-</div>
-</div>
-</div>
-</section>
-
-<section class="container chamada">
-<div>
-<h2>Faça parte da S7 DIGITAL</h2>
-<p>Uma nova experiência para comprar e vender pela internet.</p>
-</div>
-<button class="botao" onclick="abrir('cadastro')">Criar minha conta →</button>
+<section id="produtos" style="margin-top:60px">
+ <h2 class="section-title">Explore os produtos</h2>
+ <p class="subtitle">Conheça os produtos anunciados na S7 DIGITAL.</p>
+ <div id="listaProdutos" class="products">
+  <div class="empty">Carregando produtos...</div>
+ </div>
 </section>
 
 </main>
 
 <footer>
-<div class="container rodape">
-<div class="logo">S7 <span>DIGITAL</span></div>
-<p>© <span id="ano"></span> S7 DIGITAL. Todos os direitos reservados.</p>
-</div>
+ <div class="logo">S7 <span>DIGITAL</span></div>
+ <p>Uma nova experiência para vendedores e compradores.</p>
+ <p>
+  <a href="termos.html">Termos de uso</a>
+  <a href="privacidade.html">Privacidade</a>
+  <a href="contato.html">Contato</a>
+ </p>
+ <p>© 2026 S7 DIGITAL. Todos os direitos reservados.</p>
 </footer>
 
-<!-- JANELA DE CADASTRO E LOGIN -->
-<div class="modal-fundo" id="modal">
-<div class="modal">
-<button class="fechar" onclick="fechar()">×</button>
-<h2 id="tituloModal">Criar conta</h2>
-<p id="descricaoModal">Faça parte da S7 DIGITAL.</p>
+<div class="modal-bg" id="modal">
+ <div class="modal">
+  <button class="close" onclick="fecharModal()">✕</button>
+  <h2 id="modalTitulo">Criar minha conta</h2>
+  <p>Entre na S7 DIGITAL para acessar sua área de vendedor.</p>
 
-<form onsubmit="enviarFormulario(event)">
-
-<div class="campo" id="campoNome">
-<label>Nome completo</label>
-<input type="text" placeholder="Digite seu nome">
-</div>
-
-<div class="campo">
-<label>E-mail</label>
-<input type="email" required placeholder="Seu melhor e-mail">
-</div>
-
-<div class="campo">
-<label>Senha</label>
-<input type="password" required minlength="8" placeholder="Crie uma senha">
-</div>
-
-<div class="campo" id="campoTipo">
-<label>Tipo de conta</label>
-<select>
-<option>Quero comprar</option>
-<option>Quero vender</option>
-</select>
-</div>
-
-<button class="botao" type="submit">Continuar</button>
-
-</form>
-<p class="aviso">
-Demonstração visual. Para cadastro real, conecte um serviço
-de autenticação e banco de dados.
-</p>
-</div>
+  <form id="authForm">
+   <div id="nomeCampo">
+    <label>Nome completo</label>
+    <input id="nome" placeholder="Seu nome" maxlength="100">
+   </div>
+   <label>E-mail</label>
+   <input id="email" type="email" required placeholder="seu@email.com">
+   <label>Senha</label>
+   <input id="senha" type="password" required minlength="6" placeholder="Mínimo de 6 caracteres">
+   <button id="authBotao" type="submit">CRIAR MINHA CONTA</button>
+  </form>
+  <p id="authMensagem" style="margin-top:15px"></p>
+  <button onclick="alternarModo()" style="background:#263e60">Já tenho conta / Criar conta</button>
+ </div>
 </div>
 
 <script>
-document.getElementById("ano").textContent=new Date().getFullYear();
+const SUPABASE_URL = "COLOQUE_AQUI_A_URL_DO_SEU_PROJETO";
+const SUPABASE_ANON_KEY = "COLOQUE_AQUI_SUA_CHAVE_PUBLICAVEL";
 
-function abrir(tipo){
-const modal=document.getElementById("modal");
-const cadastro=tipo==="cadastro";
+let db = null;
+let usuario = null;
+let modoCadastro = true;
 
-document.getElementById("tituloModal").textContent=
-cadastro?"Criar minha conta":"Entrar na S7 DIGITAL";
-
-document.getElementById("descricaoModal").textContent=
-cadastro?"Preencha os dados para começar.":"Acesse sua conta.";
-
-document.getElementById("campoNome").style.display=
-cadastro?"block":"none";
-
-document.getElementById("campoTipo").style.display=
-cadastro?"block":"none";
-
-modal.classList.add("ativo");
+if (
+ SUPABASE_URL.startsWith("https://") &&
+ SUPABASE_ANON_KEY.startsWith("sb_publishable_")
+) {
+ db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+ iniciar();
+} else {
+ document.getElementById("listaProdutos").innerHTML =
+ '<div class="empty">Configure a conexão com o Supabase para ativar a plataforma.</div>';
 }
 
-function fechar(){
-document.getElementById("modal").classList.remove("ativo");
+function abrirLogin(){
+ modoCadastro = false;
+ atualizarModal();
+ document.getElementById("modal").style.display="flex";
+}
+function abrirCadastro(){
+ modoCadastro = true;
+ atualizarModal();
+ document.getElementById("modal").style.display="flex";
+}
+function fecharModal(){
+ document.getElementById("modal").style.display="none";
+}
+function alternarModo(){
+ modoCadastro = !modoCadastro;
+ atualizarModal();
+}
+function atualizarModal(){
+ document.getElementById("modalTitulo").textContent =
+ modoCadastro ? "Criar minha conta" : "Entrar na plataforma";
+ document.getElementById("nomeCampo").classList.toggle("hidden",!modoCadastro);
+ document.getElementById("nome").required = modoCadastro;
+ document.getElementById("authBotao").textContent =
+ modoCadastro ? "CRIAR MINHA CONTA" : "ENTRAR";
+ document.getElementById("authMensagem").textContent="";
 }
 
-function enviarFormulario(event){
-event.preventDefault();
-alert("Esta é uma demonstração. O cadastro real precisa de autenticação e banco de dados.");
+async function iniciar(){
+ const {data} = await db.auth.getSession();
+ usuario = data.session?.user || null;
+ atualizarPainel();
+
+ db.auth.onAuthStateChange((_event,session)=>{
+  usuario = session?.user || null;
+  atualizarPainel();
+ });
+
+ await carregarProdutos();
 }
 
-function avisoDemo(){
-alert("Este produto é apenas um exemplo. O checkout ainda precisa ser integrado.");
+async function atualizarPainel(){
+ document.getElementById("dashboard").style.display = usuario ? "block" : "none";
+ if(usuario) await carregarMeusProdutos();
 }
 
-document.getElementById("modal").addEventListener("click",function(e){
-if(e.target===this)fechar();
+document.getElementById("authForm").addEventListener("submit",async e=>{
+ e.preventDefault();
+ if(!db) return;
+
+ const email=document.getElementById("email").value.trim();
+ const senha=document.getElementById("senha").value;
+ const msg=document.getElementById("authMensagem");
+ const botao=document.getElementById("authBotao");
+
+ botao.disabled=true;
+ msg.textContent="Aguarde...";
+
+ try{
+  if(modoCadastro){
+   const nome=document.getElementById("nome").value.trim();
+   const {data,error}=await db.auth.signUp({
+    email,password:senha,
+    options:{data:{full_name:nome}}
+   });
+   if(error) throw error;
+   msg.textContent=data.session
+    ? "Conta criada com sucesso!"
+    : "Confira seu e-mail para confirmar o cadastro.";
+  }else{
+   const {error}=await db.auth.signInWithPassword({email,password:senha});
+   if(error) throw error;
+   msg.textContent="Login realizado!";
+   fecharModal();
+  }
+ }catch(error){
+  msg.textContent=error.message;
+ }finally{
+  botao.disabled=false;
+ }
 });
 
-document.addEventListener("keydown",function(e){
-if(e.key==="Escape")fechar();
+async function sair(){
+ if(!db) return;
+ await db.auth.signOut();
+}
+
+document.getElementById("produtoForm").addEventListener("submit",async e=>{
+ e.preventDefault();
+ if(!usuario) return;
+
+ const mensagem=document.getElementById("mensagem");
+ const botao=e.target.querySelector("button");
+ botao.disabled=true;
+ mensagem.textContent="Publicando...";
+
+ try{
+  const preco=Math.round(Number(document.getElementById("preco").value)*100);
+  if(!Number.isSafeInteger(preco)||preco<=0) throw new Error("Informe um preço válido.");
+
+  const produto={
+   seller_id:usuario.id,
+   title:document.getElementById("titulo").value.trim(),
+   description:document.getElementById("descricao").value.trim(),
+   price_cents:preco,
+   image_url:document.getElementById("imagem").value.trim()||null,
+   status:"active"
+  };
+
+  const {error}=await db.from("products").insert(produto);
+  if(error) throw error;
+
+  mensagem.textContent="Produto publicado com sucesso!";
+  e.target.reset();
+  await carregarProdutos();
+  await carregarMeusProdutos();
+ }catch(error){
+  mensagem.textContent="Erro: "+error.message;
+ }finally{
+  botao.disabled=false;
+ }
 });
+
+function escapar(valor){
+ return String(valor??"").replace(/[&<>"']/g,c=>({
+  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+ }[c]));
+}
+
+function criarCard(p){
+ const imagem=p.image_url
+  ? `<img src="${escapar(p.image_url)}" alt="${escapar(p.title)}" loading="lazy" onerror="this.style.display='none'">`
+  : "";
+ return `<article class="product">
+  ${imagem}
+  <h3>${escapar(p.title)}</h3>
+  <p>${escapar(p.description)}</p>
+  <div class="price">R$ ${(p.price_cents/100).toFixed(2).replace(".",",")}</div>
+  <p>Produto anunciado na S7 DIGITAL.</p>
+ </article>`;
+}
+
+async function carregarProdutos(){
+ if(!db)return;
+ const lista=document.getElementById("listaProdutos");
+ const {data,error}=await db.from("products")
+  .select("id,title,description,price_cents,image_url")
+  .eq("status","active")
+  .order("created_at",{ascending:false});
+
+ if(error){
+  lista.innerHTML='<div class="empty">Não foi possível carregar os produtos.</div>';
+  return;
+ }
+ lista.innerHTML=data.length
+  ? data.map(criarCard).join("")
+  : '<div class="empty">Ainda não há produtos publicados.</div>';
+}
+
+async function carregarMeusProdutos(){
+ if(!usuario)return;
+ const {data,error}=await db.from("products")
+  .select("id")
+  .eq("seller_id",usuario.id);
+ if(!error){
+  document.getElementById("totalProdutos").textContent=data.length;
+ }
+ document.getElementById("totalVendas").textContent="0";
+}
 </script>
-
 </body>
 </html>
