@@ -3,693 +3,225 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>S7-DIGITAL | Marketplace</title>
-<meta name="description" content="Compre e venda na S7-DIGITAL.">
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<title>Desbloqueie seu acesso | Zika Games 7</title>
+<meta name="description" content="Desbloqueie seu acesso aos melhores jogos mobile no Zika Games 7.">
 
 <style>
-:root{
- --bg:#080b16;
- --panel:#111a30;
- --blue:#398cff;
- --purple:#9854ff;
- --muted:#a5b2cc;
- --border:#293957;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-body{
- background:var(--bg);color:white;
- font-family:Arial,sans-serif;
+
+body {
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at top, #12376b, #05080e 70%);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
 }
-button,input,textarea,select{font:inherit}
-button{cursor:pointer}
-a{text-decoration:none;color:inherit}
-header{
- position:sticky;top:0;z-index:10;
- display:flex;align-items:center;justify-content:space-between;
- gap:18px;padding:17px 6%;
- background:#0c1222ed;
- backdrop-filter:blur(15px);
- border-bottom:1px solid var(--border);
+
+.container {
+    width: 100%;
+    max-width: 430px;
+    background: #0b1220;
+    border: 1px solid #1680ff;
+    border-radius: 20px;
+    padding: 28px 20px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0,120,255,.25);
 }
-.logo{font-size:26px;font-weight:900;color:#66aaff}
-.logo span{color:#a46bff}
-nav{display:flex;gap:23px;flex-wrap:wrap}
-nav a{font-size:14px;color:#d2def5}
-nav a:hover{color:#6daeff}
-.header-actions{display:flex;gap:9px;align-items:center}
-.btn{
- border:0;border-radius:10px;padding:13px 18px;
- color:white;font-weight:bold;
- background:linear-gradient(110deg,var(--blue),var(--purple));
- transition:.2s;
+
+.logo {
+    font-size: 34px;
+    font-weight: 900;
+    color: #1685ff;
+    text-shadow: 0 0 15px #087bff;
+    margin-bottom: 10px;
 }
-.btn:hover{filter:brightness(1.15);transform:translateY(-2px)}
-.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
-.outline{background:transparent;border:1px solid #5375b2}
-.hero{
- position:relative;overflow:hidden;
- padding:100px 8%;
- background:
- radial-gradient(circle at 80% 25%,#354a9c77,transparent 35%),
- radial-gradient(circle at 15% 90%,#7535b955,transparent 35%),
- linear-gradient(120deg,#101a36,#080b16);
+
+.subtitulo {
+    color: #aebed3;
+    font-size: 14px;
+    margin-bottom: 28px;
 }
-.hero-content{max-width:780px;position:relative;z-index:1}
-.tag{
- color:#83baff;letter-spacing:3px;
- font-size:12px;font-weight:bold;
+
+h2 {
+    font-size: 23px;
+    margin-bottom: 12px;
 }
-.hero h1{
- font-size:clamp(40px,7vw,75px);
- line-height:1.08;margin:22px 0;
+
+.descricao {
+    color: #b7c4d6;
+    font-size: 14px;
+    line-height: 1.6;
 }
-.hero h1 span{
- background:linear-gradient(90deg,#60adff,#b17aff);
- -webkit-background-clip:text;color:transparent;
+
+.anuncio {
+    min-height: 120px;
+    background: #111c2c;
+    border: 1px dashed #1685ff;
+    border-radius: 12px;
+    margin: 25px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: #9bcaff;
+    font-size: 13px;
 }
-.hero p{
- color:#bac7df;line-height:1.8;
- max-width:600px;margin-bottom:28px;
+
+.anuncio strong {
+    color: white;
+    font-size: 15px;
 }
-.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
-.stats{
- display:flex;gap:35px;flex-wrap:wrap;
- margin-top:55px;color:#aebcda;
+
+#timer {
+    color: #1685ff;
+    font-size: 19px;
+    font-weight: bold;
+    margin: 22px 0;
 }
-.stats strong{display:block;font-size:22px;color:white;margin-bottom:5px}
-.section{padding:65px 8%}
-.section-head{margin-bottom:28px}
-.section-head h2{font-size:30px;margin-bottom:10px}
-.section-head p{color:var(--muted);line-height:1.7}
-.search{
- width:100%;max-width:550px;padding:16px;
- background:#121d33;border:1px solid var(--border);
- border-radius:12px;color:white;margin-bottom:20px;
- outline:none;
+
+.barra {
+    width: 100%;
+    height: 9px;
+    background: #202c3d;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 23px;
 }
-.categories{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
-.cat{
- padding:10px 17px;border-radius:30px;
- border:1px solid var(--border);
- background:#111a30;color:#d5def1;
+
+.progresso {
+    width: 0%;
+    height: 100%;
+    background: #1685ff;
+    transition: width 1s linear;
 }
-.cat.active,.cat:hover{background:#2858a3;border-color:#5b9cff}
-.grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(225px,1fr));
- gap:20px;
+
+.botao {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background: #167cff;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    opacity: .5;
+    pointer-events: none;
 }
-.card{
- background:linear-gradient(145deg,#141f38,#101729);
- border:1px solid var(--border);
- border-radius:17px;overflow:hidden;
- transition:.25s;
+
+.botao.liberado {
+    opacity: 1;
+    pointer-events: auto;
+    box-shadow: 0 0 18px rgba(22,124,255,.5);
 }
-.card:hover{transform:translateY(-6px);border-color:#648fff}
-.product-art{
- height:175px;display:flex;
- justify-content:center;align-items:center;
- font-size:65px;
- background:radial-gradient(circle at center,#344c82,#19233e);
+
+.botao.liberado:hover {
+    background: #0863d5;
 }
-.card-content{padding:20px}
-.card h3{font-size:18px;margin-bottom:10px}
-.card p{color:var(--muted);font-size:13px;line-height:1.6;min-height:40px}
-.price{font-size:24px;color:#73b6ff;font-weight:bold;margin:17px 0}
-.card .btn{width:100%}
-.features{
- display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
- gap:18px;margin-top:25px;
+
+.rodape {
+    margin-top: 25px;
+    font-size: 12px;
+    color: #78889e;
 }
-.feature{
- background:var(--panel);border:1px solid var(--border);
- padding:25px;border-radius:15px;
+
+.rodape a {
+    color: #8bbcff;
+    text-decoration: none;
+    margin: 5px;
 }
-.feature .emoji{font-size:30px}
-.feature h3{margin:12px 0}
-.feature p{color:var(--muted);font-size:13px;line-height:1.7}
-.seller{
- margin:20px 8% 65px;padding:45px;
- border-radius:20px;
- border:1px solid #554d91;
- background:linear-gradient(120deg,#172f61,#39205d);
-}
-.seller h2{font-size:30px;margin-bottom:13px}
-.seller p{color:#d3dcf1;line-height:1.8;max-width:620px;margin-bottom:22px}
-footer{
- padding:40px 8%;text-align:center;
- background:#0e1424;border-top:1px solid var(--border);
- color:#9caac5;line-height:2;
-}
-footer strong{color:#69adff}
-.modal{
- display:none;position:fixed;inset:0;z-index:30;
- background:#000d;align-items:center;
- justify-content:center;padding:18px;
-}
-.modal-box{
- width:100%;max-width:430px;max-height:90vh;
- overflow-y:auto;background:#141e34;
- border:1px solid #53648a;border-radius:17px;
- padding:28px;
-}
-.modal-box h2{margin:8px 0 12px}
-.modal-box p{color:#b7c4dc;line-height:1.7;margin-bottom:16px}
-.modal-box input,.modal-box textarea,.modal-box select{
- width:100%;padding:14px;margin:7px 0;
- border:1px solid #354564;border-radius:9px;
- background:#0c1529;color:white;
-}
-.modal-box .btn{width:100%;margin-top:12px}
-.close{
- float:right;background:none;border:0;
- color:white;font-size:26px;
-}
-.message{font-size:13px;color:#8dc5ff;margin-top:13px;overflow-wrap:anywhere}
-.switch{display:block;text-align:center;margin-top:17px;color:#82baff;cursor:pointer}
-#account{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
-#userEmail{font-size:12px;color:#a9c6f5}
-.hidden{display:none!important}
-@media(max-width:700px){
- header{padding:14px 5%}
- nav{order:3;width:100%;justify-content:center;gap:17px}
- .hero{padding:70px 6%}
- .section{padding:45px 6%}
- .seller{margin:15px 6% 45px;padding:28px}
- .header-actions{margin-left:auto}
-}
+
 </style>
 </head>
 
 <body>
 
-<header>
- <a class="logo" href="#inicio">S7-<span>DIGITAL</span></a>
+<div class="container">
 
- <nav>
-  <a href="#inicio">Início</a>
-  <a href="#produtos">Produtos</a>
-  <a href="#vantagens">Vantagens</a>
-  <a href="#vender">Vender</a>
- </nav>
+    <div class="logo">🎮 ZIKA GAMES 7</div>
 
- <div id="account">
-  <div class="header-actions">
-   <button class="btn outline" onclick="openAuth('login')">Entrar</button>
-   <button class="btn" onclick="openAuth('signup')">Criar conta</button>
-  </div>
- </div>
-</header>
+    <div class="subtitulo">
+        O seu universo de jogos mobile!
+    </div>
 
-<section class="hero" id="inicio">
- <div class="hero-content">
-  <div class="tag">SEU NOVO MARKETPLACE</div>
-  <h1>O lugar certo para <span>comprar e vender.</span></h1>
-  <p>
-   Descubra produtos incríveis, encontre oportunidades
-   e faça parte da S7-DIGITAL. Tudo em um só lugar.
-  </p>
+    <h2>🔓 Desbloqueie seu acesso</h2>
 
-  <div class="hero-buttons">
-   <a href="#produtos" class="btn">EXPLORAR PRODUTOS →</a>
-   <button class="btn outline" onclick="openAuth('signup')">
-    COMEÇAR AGORA
-   </button>
-  </div>
+    <p class="descricao">
+        Você está quase lá! Prepare-se para conhecer
+        os melhores jogos para celular.
+    </p>
 
-  <div class="stats">
-   <div><strong>24 horas</strong><span>Loja online</span></div>
-   <div><strong>Digital + físico</strong><span>Várias categorias</span></div>
-   <div><strong>Para todos</strong><span>Compradores e vendedores</span></div>
-  </div>
- </div>
-</section>
+    <div class="anuncio">
+        <strong>ESPAÇO PARA ANÚNCIO</strong>
+        <span>Área reservada para publicidade</span>
+    </div>
 
-<section class="section" id="vantagens">
- <div class="section-head">
-  <h2>Por que escolher a S7-DIGITAL?</h2>
-  <p>Uma experiência simples para comprar e vender.</p>
- </div>
+    <div id="timer">
+        Preparando seu acesso: 10 segundos
+    </div>
 
- <div class="features">
-  <div class="feature">
-   <div class="emoji">🛒</div>
-   <h3>Produtos variados</h3>
-   <p>Descubra produtos digitais, físicos, games e tecnologia.</p>
-  </div>
-  <div class="feature">
-   <div class="emoji">👤</div>
-   <h3>Sua conta</h3>
-   <p>Tenha acesso à sua conta e acompanhe suas atividades.</p>
-  </div>
-  <div class="feature">
-   <div class="emoji">🏪</div>
-   <h3>Espaço para vendedores</h3>
-   <p>Envie seus produtos para análise e publicação.</p>
-  </div>
-  <div class="feature">
-   <div class="emoji">🔒</div>
-   <h3>Pagamento protegido</h3>
-   <p>Checkout processado pelo provedor de pagamento quando habilitado.</p>
-  </div>
- </div>
-</section>
+    <div class="barra">
+        <div class="progresso" id="progresso"></div>
+    </div>
 
-<section class="section" id="produtos">
- <div class="section-head">
-  <h2>Explore os produtos</h2>
-  <p>Encontre o que você procura na nossa vitrine.</p>
- </div>
+    <a href="links.html" class="botao" id="botao">
+        AGUARDE...
+    </a>
 
- <input class="search" id="search" placeholder="🔎 Pesquisar produtos..." oninput="renderProducts()">
+    <div class="rodape">
+        © 2026 Zika Games 7
+        <br><br>
+        <a href="sobre.html">Sobre nós</a>
+        <a href="privacidade.html">Privacidade</a>
+        <a href="termos.html">Termos de uso</a>
+        <a href="contato.html">Contato</a>
+    </div>
 
- <div class="categories">
-  <button class="cat active" onclick="setCategory('todos',this)">Todos</button>
-  <button class="cat" onclick="setCategory('digital',this)">Digitais</button>
-  <button class="cat" onclick="setCategory('fisico',this)">Físicos</button>
-  <button class="cat" onclick="setCategory('games',this)">Games</button>
-  <button class="cat" onclick="setCategory('tecnologia',this)">Tecnologia</button>
- </div>
-
- <div class="grid" id="productGrid"></div>
- <p id="empty" class="message"></p>
-</section>
-
-<section class="seller" id="vender">
- <h2>Venda na S7-DIGITAL!</h2>
- <p>
- Crie sua conta, envie seus produtos e prepare-se para
- alcançar novos compradores. Os produtos passam por
- aprovação antes de aparecerem na loja.
- </p>
- <button class="btn" onclick="openAuth('signup')">QUERO SER VENDEDOR →</button>
-</section>
-
-<section class="section hidden" id="sellerPanel">
- <div class="panel">
-  <div class="section-head">
-   <h2>Área do vendedor</h2>
-   <p>Envie um produto para análise da equipe.</p>
-  </div>
-  <input id="productTitle" class="search" placeholder="Nome do produto">
-  <textarea id="productDescription" class="search" placeholder="Descrição do produto"></textarea>
-  <input id="productPrice" class="search" type="number" min="3.01" step=".01" placeholder="Preço em reais">
-  <select id="productCategory" class="search">
-   <option value="digital">Digital</option>
-   <option value="fisico">Físico</option>
-   <option value="games">Games</option>
-   <option value="tecnologia">Tecnologia</option>
-  </select>
-  <button class="btn" onclick="submitProduct()">ENVIAR PARA APROVAÇÃO</button>
-  <p class="message" id="sellerMessage"></p>
- </div>
-</section>
-
-<footer>
- <strong>S7-DIGITAL</strong><br>
- Seu marketplace de produtos digitais e físicos.<br>
- © 2026 S7-DIGITAL. Todos os direitos reservados.
-</footer>
-
-<!-- CADASTRO E LOGIN -->
-<div class="modal" id="authModal">
- <div class="modal-box">
-  <button class="close" onclick="closeModal('authModal')">×</button>
-  <h2 id="authTitle">Criar conta</h2>
-  <p id="authDescription">Faça parte da S7-DIGITAL.</p>
-
-  <input type="email" id="authEmail" placeholder="Seu e-mail" autocomplete="email">
-  <input type="password" id="authPassword" placeholder="Senha (mínimo 8 caracteres)" autocomplete="new-password">
-
-  <button class="btn" id="authButton" onclick="submitAuth()">CRIAR MINHA CONTA</button>
-  <p class="message" id="authMessage" role="status"></p>
-
-  <span class="switch" onclick="switchAuth()" id="authSwitch">
-   Já tem conta? Entrar
-  </span>
- </div>
 </div>
 
 <script>
+let segundos = 10;
 
-// ======================================
-// CONFIGURAÇÃO SUPABASE
-// ======================================
+const timer = document.getElementById("timer");
+const botao = document.getElementById("botao");
+const progresso = document.getElementById("progresso");
 
-const SUPABASE_URL = "COLE_SUA_URL_AQUI";
-const SUPABASE_ANON_KEY = "COLE_SUA_CHAVE_PUBLICA_AQUI";
+const intervalo = setInterval(function() {
 
-const configured =
- SUPABASE_URL.startsWith("https://") &&
- !SUPABASE_ANON_KEY.startsWith("COLE_");
+    segundos--;
 
-const supabaseClient = configured
- ? window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY)
- : null;
+    timer.textContent =
+        "Preparando seu acesso: " + segundos + " segundos";
 
-// ======================================
-// PRODUTOS
-// ======================================
+    progresso.style.width =
+        ((10 - segundos) * 10) + "%";
 
-let products = [];
-let category = "todos";
+    if (segundos <= 0) {
 
-const demoProducts = [
- {title:"Produtos Gamer",description:"Conteúdos para o universo dos games.",price:0,category:"games",emoji:"🎮"},
- {title:"Produtos Digitais",description:"Materiais digitais e ferramentas.",price:0,category:"digital",emoji:"💻"},
- {title:"Acessórios",description:"Acessórios de tecnologia.",price:0,category:"fisico",emoji:"🎧"},
- {title:"Tecnologia",description:"Novidades e soluções tecnológicas.",price:0,category:"tecnologia",emoji:"📱"}
-];
+        clearInterval(intervalo);
 
-function setCategory(value,button){
- category=value;
- document.querySelectorAll(".cat").forEach(b=>b.classList.remove("active"));
- button.classList.add("active");
- renderProducts();
-}
+        timer.textContent = "✅ Seu acesso está liberado!";
 
-function renderProducts(){
- const grid=document.getElementById("productGrid");
- const term=document.getElementById("search").value.toLowerCase();
- grid.replaceChildren();
+        progresso.style.width = "100%";
 
- const filtered=products.filter(p=>{
-  const matches=(p.title+" "+(p.description||"")+" "+p.category).toLowerCase().includes(term);
-  const cat=category==="todos"||p.category===category;
-  return matches&&cat;
- });
+        botao.textContent = "🚀 ENTRAR NOS JOGOS";
 
- document.getElementById("empty").textContent=
-  filtered.length?"":"Nenhum produto encontrado.";
+        botao.classList.add("liberado");
+    }
 
- filtered.forEach(p=>{
-  const card=document.createElement("article");
-  card.className="card";
+}, 1000);
+</script>
 
-  const art=document.createElement("div");
-  art.className="product-art";
-  art.textContent=p.emoji||"📦";
-
-  const content=document.createElement("div");
-  content.className="card-content";
-
-  const title=document.createElement("h3");
-  title.textContent=p.title;
-
-  const desc=document.createElement("p");
-  desc.textContent=p.description||"Conheça este produto.";
-
-  const price=document.createElement("div");
-  price.className="price";
-  price.textContent=Number(p.price_brl).toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
-
-  const buy=document.createElement("button");
-  buy.className="btn";
-  buy.textContent="COMPRAR AGORA";
-  buy.onclick=()=>checkout(p.id);
-
-  content.append(title,desc,price,buy);
-  card.append(art,content);
-  grid.append(card);
- });
-}
-
-// ======================================
-// AUTENTICAÇÃO
-// ======================================
-
-let authMode="signup";
-
-function openAuth(mode){
- authMode=mode;
- updateAuth();
- document.getElementById("authModal").style.display="flex";
-}
-
-function closeModal(id){
- document.getElementById(id).style.display="none";
-}
-
-function switchAuth(){
- authMode=authMode==="signup"?"login":"signup";
- updateAuth();
-}
-
-function updateAuth(){
- const signup=authMode==="signup";
-
- document.getElementById("authTitle").textContent=
-  signup?"Criar conta":"Bem-vindo de volta";
-
- document.getElementById("authDescription").textContent=
-  signup?"Cadastre-se gratuitamente na S7-DIGITAL.":"Entre na sua conta.";
-
- document.getElementById("authButton").textContent=
-  signup?"CRIAR MINHA CONTA":"ENTRAR";
-
- document.getElementById("authSwitch").textContent=
-  signup?"Já tem conta? Entrar":"Ainda não tem conta? Criar conta";
-
- document.getElementById("authMessage").textContent="";
-}
-
-async function submitAuth(){
- const message=document.getElementById("authMessage");
-
- if(!supabaseClient){
-  message.textContent="Configure o Supabase antes de utilizar o cadastro.";
-  return;
- }
-
- const email=document.getElementById("authEmail").value.trim();
- const password=document.getElementById("authPassword").value;
-
- if(password.length<8){
-  message.textContent="Use uma senha de pelo menos 8 caracteres.";
-  return;
- }
-
- const button=document.getElementById("authButton");
- button.disabled=true;
-
- try{
-  let result;
-
-  if(authMode==="signup"){
-   result=await supabaseClient.auth.signUp({email,password});
-  }else{
-   result=await supabaseClient.auth.signInWithPassword({email,password});
-  }
-
-  if(result.error) throw result.error;
-
-  message.textContent=authMode==="signup"
-   ?"Cadastro enviado! Confira seu e-mail para confirmar a conta, se solicitado."
-   :"Login realizado com sucesso!";
-
-  if(authMode==="login"){
-   await refreshAccount();
-   setTimeout(()=>closeModal("authModal"),900);
-  }
-
- }catch(error){
-  message.textContent="Erro: "+error.message;
- }finally{
-  button.disabled=false;
- }
-}
-
-// ======================================
-// CONTA
-// ======================================
-
-async function refreshAccount(){
- if(!supabaseClient)return;
-
- const {data}=await supabaseClient.auth.getSession();
- const user=data.session?.user;
- const area=document.getElementById("account");
- area.replaceChildren();
-
- if(user){
-  const email=document.createElement("span");
-  email.id="userEmail";
-  email.textContent=user.email;
-
-  const seller=document.getElementById("sellerPanel");
-  seller.classList.remove("hidden");
-
-  const logout=document.createElement("button");
-  logout.className="btn outline";
-  logout.textContent="SAIR";
-  logout.onclick=async()=>{
-   await supabaseClient.auth.signOut();
-   refreshAccount();
-  };
-
-  area.append(email,logout);
- }else{
-  document.getElementById("sellerPanel").classList.add("hidden");
-  const login=document.createElement("button");
-  login.className="btn outline";
-  login.textContent="Entrar";
-  login.onclick=()=>openAuth("login");
-
-  const signup=document.createElement("button");
-  signup.className="btn";
-  signup.textContent="Criar conta";
-  signup.onclick=()=>openAuth("signup");
-
-  area.append(login,signup);
- }
-}
-
-// ======================================
-// CARREGAR PRODUTOS APROVADOS
-// ======================================
-
-async function loadProducts(){
- if(!supabaseClient){
-  document.getElementById("empty").textContent=
-   "Configure o Supabase para carregar os produtos reais.";
-  return;
- }
-
- const {data,error}=await supabaseClient
-  .from("products")
-  .select("id,title,description,price_brl,category")
-  .eq("status","approved")
-  .order("created_at",{ascending:false});
-
- if(error){
-  document.getElementById("empty").textContent=
-   "Não foi possível carregar os produtos.";
-  console.error(error);
-  return;
- }
-
- products=(data||[]).map(p=>({
-  ...p,
-  price_brl:Number(p.price_brl),
-  emoji:p.category==="games"?"🎮":
-        p.category==="tecnologia"?"📱":
-        p.category==="fisico"?"📦":"💻"
- }));
-
- renderProducts();
-}
-
-// ======================================
-// CADASTRO DE PRODUTOS
-// ======================================
-
-async function submitProduct(){
- const msg=document.getElementById("sellerMessage");
-
- if(!supabaseClient){
-  msg.textContent="Configure o Supabase.";
-  return;
- }
-
- const {data:{user}}=await supabaseClient.auth.getUser();
-
- if(!user){
-  openAuth("login");
-  return;
- }
-
- const title=document.getElementById("productTitle").value.trim();
- const description=document.getElementById("productDescription").value.trim();
- const price=Number(document.getElementById("productPrice").value);
- const cat=document.getElementById("productCategory").value;
-
- if(!title||!Number.isFinite(price)||price<=3){
-  msg.textContent="Informe um nome e um preço maior que R$ 3,00.";
-  return;
- }
-
- const {error}=await supabaseClient.from("products").insert({
-  seller_id:user.id,
-  title,
-  description,
-  price_brl:price,
-  category:cat,
-  status:"pending"
- });
-
- msg.textContent=error?
-  "Erro: "+error.message:
-  "Produto enviado! Ele aparecerá após aprovação.";
-
- if(!error){
-  document.getElementById("productTitle").value="";
-  document.getElementById("productDescription").value="";
-  document.getElementById("productPrice").value="";
- }
-}
-
-// ======================================
-// CHECKOUT MERCADO PAGO
-// ======================================
-
-async function checkout(productId){
- if(!supabaseClient){
-  alert("Configure o Supabase antes de comprar.");
-  return;
- }
-
- const {data:{session}}=await supabaseClient.auth.getSession();
-
- if(!session){
-  openAuth("login");
-  return;
- }
-
- try{
-  const {data,error}=await supabaseClient.functions.invoke(
-   "create-checkout",
-   {body:{product_id:productId}}
-  );
-
-  if(error)throw error;
-
-  if(!data||!data.init_point){
-   throw new Error("Checkout não disponível.");
-  }
-
-  window.location.href=data.init_point;
-
- }catch(error){
-  alert("Não foi possível iniciar o pagamento: "+error.message);
- }
-}
-
-// ======================================
-// INICIALIZAÇÃO
-// ======================================
-
-if(supabaseClient){
- refreshAccount();
- loadProducts();
-
- supabaseClient.auth.onAuthStateChange(()=>{
-  refreshAccount();
- });
-}else{
- products=demoProducts.map(p=>({...p,price_brl:0}));
- // Demonstração visual sem pagamentos.
- const grid=document.getElementById("productGrid");
- demoProducts.forEach(p=>{
-  const card=document.createElement("article");
-  card.className="card";
-  card.innerHTML=
-   '<div class="product-art">'+p.emoji+'</div>'+
-   '<div class="card-content"><h3>'+p.title+'</h3>'+
-   '<p>'+p.description+'</p><div class="price">Em breve</div>'+
-   '<button class="btn" onclick="openAuth(\\'signup\\')">CADASTRE-SE</button></div>';
-  grid.append(card);
- });
- document.getElementById("empty").textContent=
-  "Vitrine demonstr
+</body>
+</html>
